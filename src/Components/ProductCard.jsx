@@ -1,9 +1,16 @@
 import React from 'react';
 import { CiStar } from 'react-icons/ci';
+import { FaStar } from 'react-icons/fa6';
 
 const ProductCard = ({ d }) => {
     const { date, description, email, foodImage, foodName, location, rating, restaurantName, reviewText, reviewerName
-    } = d
+    } = d;
+
+    const dateObj = new Date(date)
+    const year = dateObj.toLocaleDateString()
+    const time = dateObj.toLocaleTimeString()
+    console.log(year, time);
+
     return (
         <div className="rounded-xl bg-[#A7C1A8]  shadow-sm">
             <figure>
@@ -13,13 +20,21 @@ const ProductCard = ({ d }) => {
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{foodName}</h2>
-                <div className='border text-[#FFC107] w-12 p-1 rounded-full flex'>
-                    <span className='bg-[#FFC107'><CiStar /></span>
-                    <span>{rating}</span>
+                <div className='flex  justify-between items-center'>
+                    <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
+                        <span className='mb-[3px] text-[#FFC107]'><FaStar /></span>
+                        <span>{rating}</span>
+                    </div>
+                    <div>
+                        <p>{year}</p>
+                    </div>
                 </div>
 
                 <div>
-                    <h2>{reviewerName}</h2>
+                    <div className='flex  justify-between items-center mb-1'>
+                        <h2 className='font-semibold text-[15px] '>{reviewerName}</h2>
+                        <span>{time}</span>
+                    </div>
                     <p>{reviewText}</p>
                 </div>
                 <div className="card-actions justify-end">

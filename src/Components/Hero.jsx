@@ -8,11 +8,12 @@ import 'swiper/css/pagination';
 import './styles.css';
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Pagination,Autoplay } from 'swiper/modules';
 
 
 
-const Hero = () => {
+const Hero = ({ data }) => {
+    console.log(data);
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
@@ -22,21 +23,41 @@ const Hero = () => {
 
     return (
         <>
-            <Swiper
+            <div className='mt-4'>
+                <Swiper
                 pagination={pagination}
-                modules={[Pagination]}
-                className="mySwiper"
+                modules={[Pagination,Autoplay]}
+                className="mySwiper rounded-2xl"
+                loop={true} 
+                autoplay={{
+                    delay:5000,
+                    disableOnInteraction:false
+                }}
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+
+                {
+                    data.map((d,index) =>
+                        <SwiperSlide key={index} >
+                            <div className='relative w-full h-[600px] '>
+                                <div>
+                                    <img src={d.foodImage} className=' object-cover absolute ' alt=""  />
+                                </div>
+                                <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10'>
+
+                                </div>
+                                <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center px-4 z-20'>
+                                    <h2 className='text-3xl font-bold'>{d.foodName}</h2>
+                                    <p className='mt-2'>{d.description}</p>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        )
+                }
+
+
+                
             </Swiper>
+            </div>
         </>
     );
 }

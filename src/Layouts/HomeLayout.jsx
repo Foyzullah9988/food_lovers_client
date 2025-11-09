@@ -7,9 +7,9 @@ import Hero from '../Components/Hero';
 
 const HomeLayout = () => {
     return (
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col min-h-screen bg-[#F2F6D0]'>
             <Navbar/>
-            <Hero/>
+            
             <div className='flex-1 container mx-auto'>
                 <Outlet/>
             </div>

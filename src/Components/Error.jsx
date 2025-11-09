@@ -5,16 +5,15 @@ import { Link } from 'react-router';
 
 const Error = () => {
     return (
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col min-h-screen bg-base-100'>
             <Navbar />
-            <div className='flex-1 flex flex-col justify-center items-center'>
-                <div>
-                   <img src='/error-404.png' alt="" />
+            <div className='flex flex-col justify-center items-center '>
+                <div className='border'>
+                   <img src='/error-404.png' alt="" className='h-96'/>
                 </div>
-                <div className='space-y-2 mt-2 flex flex-col justify-center items-center'>
-                    <h2 className='text-xl font-bold'>Oops, page not found!</h2>
-                    <p>The page you are looking for is not available.</p>
-                    <Link to={'/'} className='btn bg-gradient-to-bl to-green-400 from-green-800 text-white'>Go Back To Home !</Link>
+                <div className='space-y-2  flex flex-col justify-center items-center '>
+                    
+                    <Link to={'/'} className='btn bg-gradient-to-bl to-[#ff1a1a] from-[#F16767]text-white'>Go Back To Home !</Link>
                 </div>
             </div>
             <Footer />
