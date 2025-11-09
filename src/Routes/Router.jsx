@@ -3,10 +3,11 @@ import App from "../App"
 import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home";
 import Root from "../Layouts/Root";
-import AllProducts from "../Pages/AllProducts";
+import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import AuthLayout from "../Layouts/AuthLayout";
 import Register from "../Pages/Register";
+import Spinner from "../Components/Spinner";
 
 
 
@@ -22,12 +23,14 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: '/all-products',
+        path: '/products',
         element: <Root />,
+        hydrateFallbackElement: <Spinner />,
         children: [
             {
                 path: "",
-                element: <AllProducts />
+                element: <Products />,
+                loader: () => fetch('http://localhost:3000/products')
             }
         ]
     },
@@ -45,5 +48,5 @@ export const router = createBrowserRouter([
             },
         ]
     },
-    
+
 ])

@@ -17,13 +17,13 @@ const Navbar = () => {
                 isActive ? 'bg-[#FFE797] text-black' : ''
             }
         >Home</NavLink></li>
-       
+
         {
             !user &&
             <li>
                 <NavLink to='/auth/login'
                     className={({ isActive }) =>
-                        isActive ? 'bg-green-400' : ''
+                        isActive ? 'bg-[#FFE797] text-black' : ''
                     }
                 >Login</NavLink>
             </li>
@@ -34,7 +34,7 @@ const Navbar = () => {
             <li>
                 <NavLink to='/auth/register'
                     className={({ isActive }) =>
-                        isActive ? 'bg-green-400' : ''
+                        isActive ? 'bg-[#FFE797] text-black' : ''
                     }
                 >Register</NavLink>
             </li>
@@ -52,23 +52,23 @@ const Navbar = () => {
     }
 
     return (
-        <div className='bg-base-100 shadow-sm'>
+        <div className='bg-base-100 shadow-sm '>
 
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0}  role="button" className="btn bg-[#DEDED1] btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu bg-[#EBD9D1] menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {
                                 links
                             }
                         </ul>
                     </div>
-                    <Link to={'/'} className="btn btn-ghost text-2xl font-bold"><span className='text-[#FCB53B]'>Food</span> Zone</Link>
+                    <Link to={'/'} className="btn btn-ghost text-[#B0CE88] text-2xl font-bold"><span className='text-[#FCB53B]'>Food</span> Zone</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -81,12 +81,22 @@ const Navbar = () => {
 
                     {user
                         && <div className='flex justify-center items-center gap-3'>
-                            <Link to={'/profile'} className='text-indigo-500 font-bold'>
-                                <img src={user.photoURL} alt=""
-                                    referrerPolicy="no-referrer"
-                                    className='w-12  rounded-full h-12 object-cover' title={user.displayName} />
-                            </Link>
-                            <Link to={'/'} onClick={handleLogout} className="btn btn-secondary bg-[#84994F]">Logout</Link>
+
+                            <div className="dropdown  dropdown-left  ">
+                                <div tabIndex={0} role="button" className=" m-1">
+                                    <div className='text-indigo-500 font-bold'>
+                                        <img src={user.photoURL} alt=""
+                                            referrerPolicy="no-referrer"
+                                            className='w-12  rounded-full h-12 object-cover' title={user.displayName} />
+                                    </div>
+                                </div>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-[#B77466]  rounded-box z-1 w-52 p-2 shadow-sm">
+                                    <li><a>Add Review</a></li>
+                                    <li><a> My Reviews</a></li>
+                                    <li><Link to={'/'} onClick={handleLogout} className="btn btn-secondary bg-[#84994F]">Logout</Link></li>
+                                </ul>
+                            </div>
+
                         </div>
                     }
                 </div>

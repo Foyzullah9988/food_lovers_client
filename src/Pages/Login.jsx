@@ -59,11 +59,12 @@ const emailRef = useRef()
                 <div className="hero  ">
                     <div className=" space-y-2 ">
                         <div className="text-center ">
-                            <h1 className="text-5xl font-bold">Login now!</h1>
 
                         </div>
-                        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                            <form onSubmit={handleLogin} className="card-body">
+                        <div className="card bg-[#f2be00af]  w-full max-w-sm shrink-0 shadow-2xl">
+                            <h1 className="text-5xl text-center px-2 pt-2 font-bold">Login now!</h1>
+
+                            <form onSubmit={handleLogin} className="card-body  rounded-xl">
                                 <fieldset className="fieldset">
                                     <label className="label">Email</label>
                                     <input type="email" ref={emailRef} name='email' className="input" placeholder="Email" required />

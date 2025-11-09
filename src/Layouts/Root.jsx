@@ -6,9 +6,12 @@ import Footer from '../Components/Footer';
 
 const Root = () => {
     return (
-        <div>
+        <div className='flex flex-col min-h-screen bg-base-100'>
             <Navbar />
-            <Outlet />
+            <div className='flex-1 container mx-auto'>
+
+                <Outlet />
+            </div>
             <Footer />
         </div>
     );

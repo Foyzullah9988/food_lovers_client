@@ -86,12 +86,12 @@ const Register = () => {
             <div className=" mt-5  ">
                 <div className="hero  ">
                     <div className=" space-y-2 ">
-                        <div className="text-center ">
-                            <h1 className="text-5xl font-bold">Register now!</h1>
-
-                        </div>
-                        <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-                            <form onSubmit={handleRegister} className="card-body">
+                        
+                        <div className=" bg-[#f2be00af] w-full shrink-0 shadow-2xl rounded-xl">
+                            <h1 className="text-4xl text-center -mb-3  px-2 pt-2  font-bold">Register now!</h1>
+                            
+                            
+                            <form onSubmit={handleRegister} className="card-body rounded-xl ">
                                 <fieldset className="fieldset">
                                     <label className="label">Name</label>
                                     <input type="text" name='name' className="input" placeholder="Name" required />
