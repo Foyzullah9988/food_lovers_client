@@ -67,14 +67,14 @@ const emailRef = useRef()
                             <form onSubmit={handleLogin} className="card-body  rounded-xl">
                                 <fieldset className="fieldset">
                                     <label className="label">Email</label>
-                                    <input type="email" ref={emailRef} name='email' className="input" placeholder="Email" required />
+                                    <input type="email" ref={emailRef} name='email' className="input text-black" placeholder="Email" required />
                                     <div className='relative'>
 
-                                        <label className="label">Password</label>
-                                        <input name='password' type={show ? 'text' : "password"} className="input " placeholder="Password" required />
+                                        <label className="label ">Password</label>
+                                        <input name='password' type={show ? 'text' : "password"} className="input text-black" placeholder="Password" required />
                                         <span onClick={() => setShow(!show)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
-                                                show ? <FaRegEye /> : <FaRegEyeSlash />
+                                                show ? <FaRegEye color='black'/> : <FaRegEyeSlash color='black'/>
                                             }
 
                                             {/*  */}
@@ -95,7 +95,7 @@ const emailRef = useRef()
 
 
                                         <button  type='button '
-                                        onClick={handleForgetPassword} className="link link-hover">  Forgot password?
+                                        onClick={handleForgetPassword} className="link link-hover hover:text-red-900">  Forgot password?
                                         </button>
                                     </div>
 

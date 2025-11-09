@@ -12,6 +12,7 @@ const Register = () => {
     const navigate = useNavigate()
     const [nameErr, setNameErr] = useState('')
     const [show, setShow] = useState(false)
+    const [cShow, setCShow] = useState(false)
     const { createUser, setUser, loading, updateUser, loginGoogle } = useContext(AuthContext)
     const handleRegister = (e) => {
         e.preventDefault();
@@ -21,6 +22,7 @@ const Register = () => {
         const img = form.img.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
         // console.log(name, img, email, password);
 
         if (password.length < 6) {
@@ -32,6 +34,10 @@ const Register = () => {
             return
         } else if (!/[A-Z]/.test(password)) {
             toast.error('Password should have one capital letter')
+            return
+        }
+        else if (confirmPassword !== password) {
+            toast.error("Password and confirm password aren't same")
             return
         }
         if (name.length < 4) {
@@ -86,29 +92,43 @@ const Register = () => {
             <div className=" mt-5  ">
                 <div className="hero  ">
                     <div className=" space-y-2 ">
-                        
+
                         <div className=" bg-[#f2be00af] w-full shrink-0 shadow-2xl rounded-xl">
                             <h1 className="text-4xl text-center -mb-3  px-2 pt-2  font-bold">Register now!</h1>
-                            
-                            
+
+
                             <form onSubmit={handleRegister} className="card-body rounded-xl ">
                                 <fieldset className="fieldset">
                                     <label className="label">Name</label>
-                                    <input type="text" name='name' className="input" placeholder="Name" required />
+                                    <input type="text" name='name' className="input text-black" placeholder="Name"  required />
                                     {
                                         nameErr && <p className="text-red-400">{nameErr}</p>
                                     }
-                                    <label className="label">Image URL</label>
-                                    <input type="text" name='img' className="input" placeholder="Image URL" required />
+                                    <label className="label ">Image URL</label>
+                                    <input type="text" name='img' className="input text-black" placeholder="Image URL" required />
                                     <label className="label">Email</label>
-                                    <input type="email" name='email' className="input" placeholder="Email" required />
+                                    <input type="email" name='email' className="input text-black" placeholder="Email" required />
                                     <div className='relative'>
 
                                         <label className="label">Password</label>
-                                        <input name='password' type={show ? 'text' : "password"} className="input " placeholder="Password" required />
+                                        <input name='password' type={show ? 'text' : "password"} className="input text-black" placeholder="Password" required />
+
                                         <span onClick={() => setShow(!show)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
-                                                show ? <FaRegEye /> : <FaRegEyeSlash />
+                                                show ? <FaRegEye color='black'/> : <FaRegEyeSlash color='black'/>
+                                            }
+
+                                            {/*  */}
+                                        </span>
+                                    </div>
+                                    <div className='relative'>
+
+                                        <label className="label">Confirm Password</label>
+                                        <input name='confirmPassword' type={cShow ? 'text' : "password"} className="input text-black" placeholder="Confirm Password" required />
+
+                                        <span onClick={() => setCShow(!cShow)} className='absolute top-7 right-2 text-xl cursor-pointer'>
+                                            {
+                                                cShow ? <FaRegEye color='black'/> : <FaRegEyeSlash color='black'/>
                                             }
 
                                             {/*  */}
