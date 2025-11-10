@@ -57,7 +57,7 @@ const Navbar = () => {
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">
                     <div className="dropdown">
-                        <div tabIndex={0}  role="button" className="btn bg-[#DEDED1] btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn bg-[#DEDED1] btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
@@ -90,9 +90,15 @@ const Navbar = () => {
                                             className='w-12  rounded-full h-12 object-cover' title={user.displayName} />
                                     </div>
                                 </div>
-                                <ul tabIndex="-1" className="dropdown-content menu bg-[#B77466]  rounded-box z-1 w-52 p-2 shadow-sm">
-                                    <li><a>Add Review</a></li>
-                                    <li><a> My Reviews</a></li>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-[#B77466]  rounded-box z-1 w-52 p-2 shadow-sm space-y-1">
+                                    <NavLink to={'/products/add-review'} className={({ isActive }) =>`${
+                                        isActive ? 'bg-[#FFE797] text-black' : ''} p-1 rounded-sm`}>
+                                        <li className=''>Add Review</li>
+                                    </NavLink>
+                                    <NavLink to={'/products/my-review'} className={({ isActive }) =>`${
+                                        isActive ? 'bg-[#FFE797] text-black' : ''} p-1 rounded-sm`}>
+                                        <li> My Reviews</li>
+                                    </NavLink>
                                     <li><Link to={'/'} onClick={handleLogout} className="btn btn-secondary bg-[#84994F]">Logout</Link></li>
                                 </ul>
                             </div>

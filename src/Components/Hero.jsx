@@ -14,6 +14,8 @@ import { Pagination,Autoplay } from 'swiper/modules';
 
 const Hero = ({ data }) => {
     console.log(data);
+const sortedData = data.sort((a,b)=>b.rating - a.rating)
+    const  slicedData= sortedData.slice(0,6)
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
@@ -36,7 +38,7 @@ const Hero = ({ data }) => {
             >
 
                 {
-                    data.map((d,index) =>
+                    slicedData.map((d,index) =>
                         <SwiperSlide key={index} >
                             <div className='relative w-full h-[600px] '>
                                 <div>

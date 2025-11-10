@@ -9,6 +9,8 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Register from "../Pages/Register";
 import Spinner from "../Components/Spinner";
 import Error from "../Components/Error";
+import AddReview from "../Pages/AddReview";
+import MyReview from "../Pages/MyReview";
 
 
 
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
                 path: "",
                 element: <Products />,
                 loader: () => fetch('http://localhost:3000/products')
+            },
+            {
+                path: '/products/add-review',
+                element: <AddReview />
+            },
+            {
+                path: '/products/my-review',
+                element: <MyReview />
             }
         ]
     },
@@ -54,5 +64,6 @@ export const router = createBrowserRouter([
             },
         ]
     },
+
 
 ])
