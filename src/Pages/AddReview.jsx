@@ -44,7 +44,7 @@ const AddReview = () => {
     }
 
     return (
-        <div className='text-black  min-h-screen bg-center bg-cover w-full' style={{backgroundImage:"url('/details.png')"}}>
+        <div className='text-black  min-h-screen bg-center bg-cover w-full' style={{backgroundImage:"url('/add.jpg')"}}>
             <div className="hero container mx-auto ">
                 <div className="hero-content flex-col ">
 
@@ -66,7 +66,7 @@ const AddReview = () => {
                                 <label className="label text-white">Star Rating</label>
                                 <input name='rating' type="text" className="input w-full  text-black bg-white" placeholder="Rate your food out of 5" required />
                                 <label className="label text-white">Review Text</label>
-                                <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white border rounded-sm p-1" placeholder="Write your comment" required />
+                                <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" placeholder="Write your comment" required />
                                 <div className="card-actions justify-end">
                                     <button className="btn bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-blue-600 hover:to-green-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Add Review</button>
                                 </div>

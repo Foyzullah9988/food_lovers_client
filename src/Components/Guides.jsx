@@ -17,8 +17,8 @@ const Guides = () => {
         <div>
             <div className=" py-16">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold mb-2 text-[#a8a099]">Foodie Tips & Guides</h2>
+                    <div className="text-center mb-8">
+                        <h2 className="text-4xl font-bold mb-2 text-[#426733]">Foodie Tips & Guides</h2>
                         <p className="text-gray-600">Enhance your foodie adventures with expert tips and practical guides from our community.</p>
                     </div>
 

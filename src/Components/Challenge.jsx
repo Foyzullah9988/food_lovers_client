@@ -16,9 +16,9 @@ const Challenge = () => {
 
 
     return (
-        <div className='mt-5 w-full mx-auto  '>
+        <div className='mt-9 w-full mx-auto  '>
             <div className='text-center'>
-                <h2 className='text-2xl font-bold my-3'>Foodie Challenges</h2>
+                <h2 className='text-4xl font-bold mb-4 text-[#426733]'>Foodie Challenges</h2>
             </div>
             <div className='grid  xl:grid-cols-3 gap-4  justify-between '>
                 {

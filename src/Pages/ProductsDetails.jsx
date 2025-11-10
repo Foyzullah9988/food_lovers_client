@@ -61,7 +61,8 @@ const ProductsDetails = () => {
                                     Out of 5
                                 </div>
                                 <p>{reviewText}</p>
-                                <div>
+                                <hr />
+                                <div className='flex flex-col items-end'>
                                     <p>{time}</p>
                                 <p>{year}</p>
                                 </div>

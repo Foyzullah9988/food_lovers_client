@@ -16,8 +16,8 @@ const Home = () => {
 
         <div>
             <Hero data={data} />
-            <h2 className='text-2xl font-semibold text-black text-center'>Top Rated Reviews</h2>
-            <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4  border '>
+            <h2 className='text-4xl font-bold text-center mb-6  text-[#426733]'>Top Rated Reviews</h2>
+            <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4   '>
 
 
                 {
@@ -26,7 +26,7 @@ const Home = () => {
                     )
                 }
             </div>
-            <div className='border flex justify-center items-center my-6'>
+            <div className=' flex justify-center items-center my-6'>
                 <Link to={'/products'} className='bg-[#B87C4C] text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors'>Show All</Link>
             </div>
             <div>

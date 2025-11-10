@@ -25,7 +25,7 @@ const sortedData = data.sort((a,b)=>Number(b.rating) -Number( a.rating))
 
     return (
         <>
-            <div className='mt-4'>
+            <div className='my-9'>
                 <Swiper
                 pagination={pagination}
                 modules={[Pagination,Autoplay]}

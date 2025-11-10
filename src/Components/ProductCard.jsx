@@ -25,14 +25,17 @@ const ProductCard = ({ d }) => {
                     alt="Food" />
             </figure>
             <div className="card-body flex flex-col flex-1">
-                <h2 className="card-title">{foodName}</h2>
-                <span>{restaurantName}</span>
-                <span>{location}</span>
-                <div className='flex  justify-between items-center'>
-                    <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
+                <div className='flex gap-4 items-center'>
+                    <h2 className="card-title">{foodName}</h2>
+                <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
                         <span className='mb-[3px] text-[#FFC107]'><FaStar /></span>
                         <span>{rating}</span>
                     </div>
+                </div>
+                <span>{restaurantName}</span>
+                <span>{location}</span>
+                <div className='flex  justify-between items-center'>
+                    
                     
                 </div>
 

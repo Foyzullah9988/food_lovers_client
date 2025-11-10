@@ -8,7 +8,7 @@ const Error = () => {
         <div className='flex flex-col min-h-screen bg-base-100'>
             <Navbar />
             <div className='flex flex-col justify-center items-center '>
-                <div className='border'>
+                <div className=''>
                    <img src='/error-404.png' alt="" className='h-96'/>
                 </div>
                 <div className='space-y-2  flex flex-col justify-center items-center '>
