@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Local Dessert Hunt",
+        "description": "Try 5 different local desserts and share your reviews to earn the Sweet Tooth Badge!",
+        "target": 5,
+        "reward": "Sweet Tooth Badge"
+    },
+    {
+        "title": "Street Food Explorer",
+        "description": "Visit 7 street food stalls in your city and post photos of your favorite dishes to earn the Street Foodie Badge!",
+        "target": 7,
+        "reward": "Street Foodie Badge"
+    },
+    {
+        "title": "Restaurant Review Master",
+        "description": "Write reviews for 10 local restaurants and rate them to earn the Critic Badge!",
+        "target": 10,
+        "reward": "Critic Badge"
+    }
+]

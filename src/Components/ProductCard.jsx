@@ -46,7 +46,7 @@ const ProductCard = ({ d }) => {
                     <p>{reviewText}</p>
                 </div>
                 <div className="card-actions justify-end mt-auto">
-                    <Link to={'/products/details'} className="btn bg-[#ECDFCC] text-[#606953]">View Details</Link>
+                    <Link to={'/products/details'} className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors">View Details</Link>
                 </div>
             </div>
         </div>

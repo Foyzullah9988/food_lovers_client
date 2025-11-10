@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Explore Local Markets",
+        "description": "Uncover vibrant local markets filled with fresh produce and regional specialties.",
+        "tip": "Go early for the best picks and talk to vendors to learn cooking secrets.",
+        "image": "https://cdn.pixabay.com/photo/2014/05/05/03/54/vegetable-market-337971_1280.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Street Food Safety",
+        "description": "Savor street food confidently with smart hygiene habits.",
+        "tip": "Choose busy stalls with high turnover and watch how your food is prepared before eating.",
+        "image": "https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=876"
+    },
+    {
+        "id": 3,
+        "title": "Food Photography Tips",
+        "description": "Master food photography with simple tricks for lighting and angles.",
+        "tip": "Use natural light and focus on one hero ingredient to make your shot stand out.",
+        "image": "https://images.unsplash.com/photo-1758522488776-f7e48e7f5c2b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1032"
+    },
+    {
+        "id": 4,
+        "title": "Seasonal Food Guide",
+        "description": "Celebrate each season’s harvest with fresh, flavorful dishes.",
+        "tip": "Plan meals around what’s in season to save money and enjoy peak taste.",
+        "image": "https://cdn.pixabay.com/photo/2016/10/02/20/58/chestnut-1710430_1280.jpg"
+    }
+]
