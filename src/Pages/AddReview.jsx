@@ -22,19 +22,19 @@ const AddReview = () => {
             reviewerName: user.displayName,
         }
 
-        fetch('http://localhost:3000/products',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
+        fetch('http://localhost:3000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            body:JSON.stringify(formData)
-        }).then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-        }).catch(err=>{
-            console.log(err.message);
-        })
-        
+            body: JSON.stringify(formData)
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+            }).catch(err => {
+                console.log(err.message);
+            })
+        e.target.reset()
     }
 
     return (
@@ -60,8 +60,10 @@ const AddReview = () => {
                                 <input name='rating' type="text" className="input w-full" placeholder="Rate your food out of 5" />
                                 <label className="label">Review Text</label>
                                 <textarea name='comment' type="text" cols={40} rows={5} className=" w-full border rounded-sm p-1" placeholder="Write your comment" />
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-neutral mt-4">Review</button>
+                                </div>
 
-                                <button className="btn btn-neutral mt-4">Review</button>
                             </fieldset>
                         </form>
                     </div>

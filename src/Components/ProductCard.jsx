@@ -1,6 +1,7 @@
 import React from 'react';
 import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa6';
+import { Link } from 'react-router';
 
 const ProductCard = ({ d }) => {
     const { date, description, email, foodImage, foodName, location, rating, restaurantName, reviewText, reviewerName
@@ -12,13 +13,13 @@ const ProductCard = ({ d }) => {
     console.log(year, time);
 
     return (
-        <div className="rounded-xl bg-[#A7C1A8]  shadow-sm">
+        <div className="rounded-xl bg-[#A7C1A8]  shadow-sm flex flex-col">
             <figure>
                 <img className='w-full h-52 object-cover rounded-xl'
                     src={foodImage}
                     alt="Food" />
             </figure>
-            <div className="card-body">
+            <div className="card-body flex flex-col flex-1">
                 <h2 className="card-title">{foodName}</h2>
                 <div className='flex  justify-between items-center'>
                     <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
@@ -37,8 +38,8 @@ const ProductCard = ({ d }) => {
                     </div>
                     <p>{reviewText}</p>
                 </div>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                <div className="card-actions justify-end mt-auto">
+                    <Link to={'/products/details'} className="btn btn-primary ">View Details</Link>
                 </div>
             </div>
         </div>

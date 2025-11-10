@@ -17,6 +17,11 @@ const Navbar = () => {
                 isActive ? 'bg-[#FFE797] text-black' : ''
             }
         >Home</NavLink></li>
+        <li><NavLink to='/products'
+            className={({ isActive }) =>
+                isActive ? 'bg-[#FFE797] text-black' : ''
+            }
+        >All Reviews</NavLink></li>
 
         {
             !user &&
@@ -52,7 +57,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='bg-base-100 shadow-sm '>
+        <div className='bg-[#A94A4A] shadow-sm '>
 
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">

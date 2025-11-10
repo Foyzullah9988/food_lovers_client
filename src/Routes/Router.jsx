@@ -11,6 +11,9 @@ import Spinner from "../Components/Spinner";
 import Error from "../Components/Error";
 import AddReview from "../Pages/AddReview";
 import MyReview from "../Pages/MyReview";
+import PrivateRoute from "./PrivateRoute";
+import ProductsDetails from "../Pages/ProductsDetails";
+
 
 
 
@@ -30,7 +33,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/products',
-        element: <Root />,
+        element:<Root />,
         errorElement: <Error />,
         hydrateFallbackElement: <Spinner />,
         children: [
@@ -41,11 +44,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/products/add-review',
-                element: <AddReview />
+                element:<PrivateRoute><AddReview /></PrivateRoute> 
             },
             {
                 path: '/products/my-review',
-                element: <MyReview />
+                element: <PrivateRoute><MyReview /></PrivateRoute> 
+            },
+            {
+                path: '/products/details',
+                element:<PrivateRoute><ProductsDetails /></PrivateRoute> 
             }
         ]
     },
