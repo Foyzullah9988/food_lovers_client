@@ -89,29 +89,29 @@ const Register = () => {
 
     return (
         <div>
-            <div className=" mt-5  ">
+            <div className=" my-5  ">
                 <div className="hero  ">
                     <div className=" space-y-2 ">
 
-                        <div className=" bg-[#f2be00af] w-full shrink-0 shadow-2xl rounded-xl">
+                        <div className=" bg-black/50 backdrop-blur-sm w-full shrink-0 shadow-2xl rounded-xl">
                             <h1 className="text-4xl text-center -mb-3  px-2 pt-2  font-bold">Register now!</h1>
 
 
                             <form onSubmit={handleRegister} className="card-body rounded-xl ">
                                 <fieldset className="fieldset">
                                     <label className="label">Name</label>
-                                    <input type="text" name='name' className="input text-black" placeholder="Name"  required />
+                                    <input type="text" name='name' className="input text-black  bg-white" placeholder="Name"  required />
                                     {
                                         nameErr && <p className="text-red-400">{nameErr}</p>
                                     }
                                     <label className="label ">Image URL</label>
-                                    <input type="text" name='img' className="input text-black" placeholder="Image URL" required />
+                                    <input type="text" name='img' className="input text-black  bg-white" placeholder="Image URL" required />
                                     <label className="label">Email</label>
-                                    <input type="email" name='email' className="input text-black" placeholder="Email" required />
+                                    <input type="email" name='email' className="input text-black  bg-white" placeholder="Email" required />
                                     <div className='relative'>
 
                                         <label className="label">Password</label>
-                                        <input name='password' type={show ? 'text' : "password"} className="input text-black" placeholder="Password" required />
+                                        <input name='password' type={show ? 'text' : "password"} className="input text-black  bg-white" placeholder="Password" required />
 
                                         <span onClick={() => setShow(!show)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
@@ -124,7 +124,7 @@ const Register = () => {
                                     <div className='relative'>
 
                                         <label className="label">Confirm Password</label>
-                                        <input name='confirmPassword' type={cShow ? 'text' : "password"} className="input text-black" placeholder="Confirm Password" required />
+                                        <input name='confirmPassword' type={cShow ? 'text' : "password"} className="input text-black  bg-white" placeholder="Confirm Password" required />
 
                                         <span onClick={() => setCShow(!cShow)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
@@ -137,13 +137,13 @@ const Register = () => {
                                     <div>
 
                                     </div>
-                                    <button type='submit' className="btn btn-neutral mt-4">Register</button>
+                                    <button type='submit' className="w-full btn bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Register</button>
                                 </fieldset>
                                 <p className='text-center'>Already have an account?<Link to={'/auth/login'} className='text-blue-500 hover:underline'>Login</Link></p>
                                 <div className='flex justify-between items-center'>
                                     <hr className='w-5/12' />or<hr className='w-5/12' />
                                 </div>
-                                <button type='button' className='flex justify-center items-center btn'
+                                <button type='button' className='flex justify-center items-center btn bg-white/50'
                                     onClick={handleGoogleSignin}
                                 >
                                     <span><FcGoogle /></span> <span>Continue With Google</span>

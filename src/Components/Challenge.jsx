@@ -16,13 +16,13 @@ const Challenge = () => {
 
 
     return (
-        <div className='mt-5 container mx-auto  '>
+        <div className='mt-5 w-full mx-auto  '>
             <div className='text-center'>
                 <h2 className='text-2xl font-bold my-3'>Foodie Challenges</h2>
             </div>
             <div className='grid  xl:grid-cols-3 gap-4  justify-between '>
                 {
-                    data.map((d, index) => <div data-aos="flip-up" className='bg-[#E7CCCC]  p-3 rounded-xl space-y-3 flex flex-col' key={index}>
+                    data.map((d, index) => <div data-aos="flip-up" className='bg-[#c0a8a8]  p-3 rounded-xl space-y-3 flex flex-col' key={index}>
                         <h2 className='text-xl font-semibold text-white'>{d.title}</h2>
                         <p className='text-white'>{d.description}</p>
                         <div className='flex  flex-1 justify-between'>

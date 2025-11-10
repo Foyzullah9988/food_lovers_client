@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/products',
-        element:<Root />,
+        element: <Root />,
         errorElement: <Error />,
         hydrateFallbackElement: <Spinner />,
         children: [
@@ -44,16 +44,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/products/add-review',
-                element:<PrivateRoute><AddReview /></PrivateRoute> 
+                element: <PrivateRoute><AddReview /></PrivateRoute>
             },
             {
                 path: '/products/my-review',
-                element: <PrivateRoute><MyReview /></PrivateRoute> 
+                element: <PrivateRoute><MyReview /></PrivateRoute>
             },
-            {
-                path: '/products/details',
-                element:<PrivateRoute><ProductsDetails /></PrivateRoute> 
-            }
+
         ]
     },
     {
@@ -71,6 +68,12 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: '/products-details/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
+        hydrateFallbackElement:<Spinner/>,
+        element: <PrivateRoute><ProductsDetails /></PrivateRoute>
+    }
 
 
 ])

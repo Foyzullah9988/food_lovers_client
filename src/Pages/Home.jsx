@@ -1,6 +1,6 @@
 import Hero from '../Components/Hero';
 import ProductCard from '../Components/ProductCard';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import Aos from 'aos';
 import Challenge from '../Components/Challenge';
 import Guides from '../Components/Guides';
@@ -25,6 +25,9 @@ const Home = () => {
                         <ProductCard key={index} d={d} />
                     )
                 }
+            </div>
+            <div className='border flex justify-center items-center my-6'>
+                <Link to={'/products'} className='bg-[#B87C4C] text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors'>Show All</Link>
             </div>
             <div>
                 <Challenge/>

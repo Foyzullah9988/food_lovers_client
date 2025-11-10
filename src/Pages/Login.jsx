@@ -55,23 +55,23 @@ const emailRef = useRef()
     return (
         <div>
 
-            <div className=" mt-5  ">
+            <div className=" my-5  ">
                 <div className="hero  ">
                     <div className=" space-y-2 ">
                         <div className="text-center ">
 
                         </div>
-                        <div className="card bg-[#f2be00af]  w-full max-w-sm shrink-0 shadow-2xl">
-                            <h1 className="text-5xl text-center px-2 pt-2 font-bold">Login now!</h1>
+                        <div className="card bg-black/50 backdrop-blur-sm  w-full max-w-sm shrink-0 shadow-2xl">
+                            <h1 className="text-4xl text-center px-2 pt-2 font-bold">Login now!</h1>
 
                             <form onSubmit={handleLogin} className="card-body  rounded-xl">
                                 <fieldset className="fieldset">
                                     <label className="label">Email</label>
-                                    <input type="email" ref={emailRef} name='email' className="input text-black" placeholder="Email" required />
+                                    <input type="email" ref={emailRef} name='email' className="input text-black bg-white" placeholder="Email" required />
                                     <div className='relative'>
 
                                         <label className="label ">Password</label>
-                                        <input name='password' type={show ? 'text' : "password"} className="input text-black" placeholder="Password" required />
+                                        <input name='password' type={show ? 'text' : "password"} className="input text-black bg-white" placeholder="Password" required />
                                         <span onClick={() => setShow(!show)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
                                                 show ? <FaRegEye color='black'/> : <FaRegEyeSlash color='black'/>
@@ -95,18 +95,18 @@ const emailRef = useRef()
 
 
                                         <button  type='button '
-                                        onClick={handleForgetPassword} className="link link-hover hover:text-red-900">  Forgot password?
+                                        onClick={handleForgetPassword} className="link link-hover ">  Forgot password?
                                         </button>
                                     </div>
 
-                                    <button type='submit' className="btn btn-neutral mt-4">Login</button>
+                                    <button type='submit' className="btn bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Login</button>
                                 </fieldset>
                                 <p className='text-center'>Don't have an account?<Link to={'/auth/register'} className='text-blue-500 hover:underline'>Register</Link></p>
 
                                 <div className='flex justify-between items-center'>
                                     <hr className='w-5/12' />or<hr className='w-5/12' />
                                 </div>
-                                <button type='button' className='flex justify-center items-center btn'
+                                <button type='button' className='flex justify-center items-center btn bg-white/50'
                                     onClick={handleGoogleSignin}
                                 >
                                     <span><FcGoogle /></span> <span>Continue With Google</span>

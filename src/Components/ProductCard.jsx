@@ -6,13 +6,11 @@ import { Link } from 'react-router';
 import 'aos/dist/aos.css';
 
 const ProductCard = ({ d }) => {
-    const { date, description, email, foodImage, foodName, location, rating, restaurantName, reviewText, reviewerName
+    const {  foodImage, foodName, location, rating, restaurantName, reviewText,_id, reviewerName
     } = d;
+    console.log(_id);
 
-    const dateObj = new Date(date)
-    const year = dateObj.toLocaleDateString()
-    const time = dateObj.toLocaleTimeString()
-    console.log(year, time);
+    
 
     useEffect(() => {
         Aos.init({ duration: 2000 })
@@ -28,25 +26,25 @@ const ProductCard = ({ d }) => {
             </figure>
             <div className="card-body flex flex-col flex-1">
                 <h2 className="card-title">{foodName}</h2>
+                <span>{restaurantName}</span>
+                <span>{location}</span>
                 <div className='flex  justify-between items-center'>
                     <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
                         <span className='mb-[3px] text-[#FFC107]'><FaStar /></span>
                         <span>{rating}</span>
                     </div>
-                    <div>
-                        <p>{year}</p>
-                    </div>
+                    
                 </div>
 
                 <div>
                     <div className='flex  justify-between items-center mb-1'>
                         <h2 className='font-semibold text-[15px] '>{reviewerName}</h2>
-                        <span>{time}</span>
+                        
                     </div>
                     <p>{reviewText}</p>
                 </div>
                 <div className="card-actions justify-end mt-auto">
-                    <Link to={'/products/details'} className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors">View Details</Link>
+                    <Link to={`/products-details/${_id}`} className="bg-[#63A361] text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors">View Details</Link>
                 </div>
             </div>
         </div>
