@@ -14,7 +14,7 @@ const Products = () => {
     // console.log(year, time);
 
     return (
-        <div className=''>
+        <div className='container mx-auto'>
             <div className="bg-black">
                 All Reviews
             </div>

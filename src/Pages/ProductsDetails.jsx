@@ -1,5 +1,4 @@
 import Aos from 'aos';
-import React, { useEffect } from 'react';
 import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router';
