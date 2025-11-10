@@ -57,7 +57,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='bg-[#A94A4A] shadow-sm '>
+        <div className='bg-[#9e6161] shadow-sm '>
 
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">

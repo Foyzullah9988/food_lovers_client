@@ -1,7 +1,9 @@
-import React from 'react';
+import Aos from 'aos';
+import React, { useEffect } from 'react';
 import { CiStar } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router';
+import 'aos/dist/aos.css';
 
 const ProductCard = ({ d }) => {
     const { date, description, email, foodImage, foodName, location, rating, restaurantName, reviewText, reviewerName
@@ -12,8 +14,13 @@ const ProductCard = ({ d }) => {
     const time = dateObj.toLocaleTimeString()
     console.log(year, time);
 
+    useEffect(() => {
+        Aos.init({ duration: 2000 })
+        Aos.refresh();
+    }, [])
+
     return (
-        <div className="rounded-xl bg-[#A7C1A8]  shadow-sm flex flex-col">
+        <div data-aos="fade-up" className="rounded-xl  bg-[#99ae99]  shadow-sm flex flex-col">
             <figure>
                 <img className='w-full h-52 object-cover rounded-xl'
                     src={foodImage}
@@ -39,7 +46,7 @@ const ProductCard = ({ d }) => {
                     <p>{reviewText}</p>
                 </div>
                 <div className="card-actions justify-end mt-auto">
-                    <Link to={'/products/details'} className="btn btn-primary ">View Details</Link>
+                    <Link to={'/products/details'} className="btn bg-[#ECDFCC] text-[#606953]">View Details</Link>
                 </div>
             </div>
         </div>

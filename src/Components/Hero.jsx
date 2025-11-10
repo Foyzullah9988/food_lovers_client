@@ -14,7 +14,7 @@ import { Pagination,Autoplay } from 'swiper/modules';
 
 const Hero = ({ data }) => {
     console.log(data);
-const sortedData = data.sort((a,b)=>b.rating - a.rating)
+const sortedData = data.sort((a,b)=>Number(b.rating) -Number( a.rating))
     const  slicedData= sortedData.slice(0,6)
     const pagination = {
         clickable: true,
