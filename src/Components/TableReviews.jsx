@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const TableReviews = ({ userData, index }) => {
     // console.log(userData);
@@ -6,6 +8,28 @@ const TableReviews = ({ userData, index }) => {
     const year = dateObj.toLocaleDateString()
     const time = dateObj.toLocaleTimeString()
     console.log({ year, time })
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+    }
 
     return (
         <>
@@ -39,10 +63,10 @@ const TableReviews = ({ userData, index }) => {
                     </div>
 
                 </td>
-               
+
                 <th>
-                    <button className="btn  btn-xs bg-linear-to-bl from-green-400 to-green-800">Edit</button>
-                    <button className="btn  btn-xs bg-linear-to-bl from-red-400 to-red-800">Delete</button>
+                    <Link to={`/update-products/${userData._id}`} className="btn  btn-xs bg-linear-to-bl from-green-400 to-green-800">Edit</Link>
+                    <button onClick={handleDelete} className="btn  btn-xs bg-linear-to-bl from-red-400 to-red-800">Delete</button>
                 </th>
 
             </tr>

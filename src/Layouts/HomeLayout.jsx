@@ -10,7 +10,7 @@ const HomeLayout = () => {
         <div className='flex flex-col min-h-screen bg-[#F2F6D0]'>
             <Navbar/>
             
-            <div className='flex-1 container mx-auto'>
+            <div className='flex-1 container mx-auto mt-16'>
                 <Outlet/>
             </div>
             <Footer/>

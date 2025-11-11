@@ -1,10 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { useLoaderData } from 'react-router';
 
-const AddReview = () => {
+const UpdateReview = () => {
     const { user } = use(AuthContext)
-    // console.log(user);
+    console.log(user);
+    const data = useLoaderData()
+    console.log(data);
 
     const handleReview = (e) => {
         e.preventDefault();
@@ -16,20 +19,16 @@ const AddReview = () => {
         }
 
         const formData = {
-            date: new Date(),
-
-            email: user.email,
             foodImage: form.foodImage.value,
             foodName: form.foodName.value,
             location: form.location.value,
             rating: rating,
             restaurantName: form.restaurantName.value,
             reviewText: form.comment.value,
-            reviewerName: user.displayName,
         }
 
-        fetch('http://localhost:3000/products', {
-            method: 'POST',
+        fetch(`http://localhost:3000/products/${data._id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -37,7 +36,7 @@ const AddReview = () => {
         }).then(res => res.json())
             .then(data => {
                 console.log(data);
-                 toast.success('Review added successfully')
+                toast.success('Review updated successfully')
             }).catch(err => {
                 console.log(err.message);
             })
@@ -57,17 +56,17 @@ const AddReview = () => {
                         <form onSubmit={handleReview} className="card-body">
                             <fieldset className="fieldset">
                                 <label className="label text-white">Food Name</label>
-                                <input name='foodName' type="text" className="input w-full  text-black bg-white " placeholder="Name" required />
+                                <input name='foodName' type="text" className="input w-full  text-black bg-white " defaultValue={data.foodName} placeholder="Name" required />
                                 <label className="label text-white">Food Image</label>
-                                <input name='foodImage' type="text" className="input w-full  text-black bg-white" placeholder="Image URL" required />
+                                <input name='foodImage' type="text" className="input w-full  text-black bg-white" defaultValue={data.foodImage} placeholder="Image URL" required />
                                 <label className="label text-white">Restaurant Name</label>
-                                <input name='restaurantName' type="text" className="input w-full  text-black bg-white" placeholder="Name of the Restaurant " required />
+                                <input name='restaurantName' type="text" className="input w-full  text-black bg-white" defaultValue={data.restaurantName} placeholder="Name of the Restaurant " required />
                                 <label className="label text-white">Location</label>
-                                <input name='location' type="text" className="input w-full  text-black bg-white" placeholder="Location of the Restaurant" required />
+                                <input name='location' type="text" className="input w-full  text-black bg-white" defaultValue={data.location} placeholder="Location of the Restaurant" required />
                                 <label className="label text-white">Star Rating</label>
-                                <input name='rating' type="text" className="input w-full  text-black bg-white" placeholder="Rate your food out of 5" required />
+                                <input name='rating' type="text" className="input w-full  text-black bg-white" defaultValue={data.rating} placeholder="Rate your food out of 5" required />
                                 <label className="label text-white">Review Text</label>
-                                <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" placeholder="Write your comment" required />
+                                <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" defaultValue={data.reviewText} placeholder="Write your comment" required />
                                 <div className="card-actions justify-end">
                                     <button className="btn bg-linear-to-r from-yellow-500 to-amber-600 hover:from-blue-600 hover:to-green-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Add Review</button>
                                 </div>
@@ -81,4 +80,4 @@ const AddReview = () => {
     );
 };
 
-export default AddReview;
+export default UpdateReview;

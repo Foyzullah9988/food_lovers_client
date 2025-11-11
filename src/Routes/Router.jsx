@@ -13,6 +13,7 @@ import AddReview from "../Pages/AddReview";
 import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
 import ProductsDetails from "../Pages/ProductsDetails";
+import UpdateReview from "../Pages/UpdateReview";
 
 
 
@@ -74,6 +75,12 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
         hydrateFallbackElement:<Spinner/>,
         element: <PrivateRoute><ProductsDetails /></PrivateRoute>
+    },
+    {
+        path: '/update-products/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
+        hydrateFallbackElement:<Spinner/>,
+        element: <PrivateRoute><UpdateReview /></PrivateRoute>
     }
 
 
