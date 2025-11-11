@@ -1,10 +1,14 @@
 import Aos from 'aos';
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { FaBookmark, FaHeart, FaStar } from 'react-icons/fa6';
 import { Link } from 'react-router';
 import 'aos/dist/aos.css';
+import { AuthContext } from '../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const ProductCard = ({ d }) => {
+    // console.log(d);
+    const { user } = use(AuthContext)
     const { foodImage, foodName, location, rating, restaurantName, reviewText, _id, reviewerName } = d;
     const [liked, setLiked] = useState(false);
 
@@ -12,6 +16,22 @@ const ProductCard = ({ d }) => {
         Aos.init({ duration: 2000 });
         Aos.refresh();
     }, []);
+
+    const handleFavorite = () => {
+        fetch(`http://localhost:3000/favorites`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ...d, favorite_by: user.email })
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Add to favorite')
+            }).catch(err => {
+                console.log(err.message);
+            })
+    }
 
     return (
         <div data-aos="fade-up" className="rounded-xl bg-[#99ae99] shadow-sm flex flex-col overflow-hidden">
@@ -34,7 +54,7 @@ const ProductCard = ({ d }) => {
                     <h2 className="card-title font-semibold text-lg">{foodName}</h2>
                     <div className="flex justify-end ">
                         <button
-                            onClick={() => setLiked(!liked)}
+                            onClick={() => { handleFavorite(), setLiked(!liked) }}
                             className="relative flex items-center justify-center w-12 h-12 rounded-lg focus:outline-none"
                         >
                             <svg
@@ -47,15 +67,20 @@ const ProductCard = ({ d }) => {
 
                         </button>
                     </div>
-                    {/* <div className="border text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1">
+
+                </div>
+
+                <div className='flex justify-between items-center'>
+                    <div className='flex flex-col'>
+                        <span className="text-sm">{restaurantName}</span>
+                        <span className="text-sm">{location}</span>
+                    </div>
+                    <div className="border text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1">
                         <span className="mb-[3px] text-[#FFC107]"><FaStar /></span>
 
                         <span>{rating}</span>
-                    </div> */}
+                    </div>
                 </div>
-
-                <span className="text-sm">{restaurantName}</span>
-                <span className="text-sm">{location}</span>
 
                 <div className="mt-4">
                     <div className="flex justify-between items-center mb-1">

@@ -44,13 +44,9 @@ export const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:3000/products')
             },
             {
-                path: '/products/add-review',
-                element: <PrivateRoute><AddReview /></PrivateRoute>
-            },
-            {
                 path: '/products/my-review',
                 element: <PrivateRoute><MyReview /></PrivateRoute>,
-                 loader: () => fetch('http://localhost:3000/products')
+                loader: () => fetch('http://localhost:3000/products')
             },
 
         ]
@@ -73,15 +69,20 @@ export const router = createBrowserRouter([
     {
         path: '/products-details/:id',
         loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
-        hydrateFallbackElement:<Spinner/>,
+        hydrateFallbackElement: <Spinner />,
         element: <PrivateRoute><ProductsDetails /></PrivateRoute>
     },
     {
         path: '/update-products/:id',
         loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
-        hydrateFallbackElement:<Spinner/>,
+        hydrateFallbackElement: <Spinner />,
         element: <PrivateRoute><UpdateReview /></PrivateRoute>
-    }
+    },
+    {
+        path: '/products/add-review',
+        element: <PrivateRoute><AddReview /></PrivateRoute>
+    },
+
 
 
 ])
