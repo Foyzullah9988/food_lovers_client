@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Book from './Book';
 
 const Guides = () => {
     const [data, setData] = useState([])
@@ -38,6 +39,13 @@ const Guides = () => {
                             </div>)
                         }
                     </div>
+                    
+
+
+{/* <Book/> */}
+
+
+
                 </div>
             </div>
 

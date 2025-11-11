@@ -7,7 +7,7 @@ import Spinner from './Spinner';
 import Error from './Error';
 
 
-const Navbar = () => {
+const Navbar = ({ fixed = true }) => {
     const { user, logout } = use(AuthContext)
     // console.log(user?.photoURL);
     // console.log(user);
@@ -59,7 +59,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='bg-[#9e6161fa] fixed top-0 left-0 w-full shadow-sm z-50 '>
+         <div className={`${fixed ? 'fixed top-0 left-0 w-full shadow-sm z-50' : 'relative'} bg-[#9e6161fa]`}>
 
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">

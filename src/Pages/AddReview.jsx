@@ -14,6 +14,10 @@ const AddReview = () => {
             toast.error('Rating should be 5 or less')
             return
         }
+        else if(isNaN(rating)){
+            toast.error('Rating should be in number')
+            return
+        }
 
         const formData = {
             date: new Date(),
