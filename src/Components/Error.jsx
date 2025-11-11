@@ -13,7 +13,7 @@ const Error = () => {
                 </div>
                 <div className='space-y-2  flex flex-col justify-center items-center '>
                     
-                    <Link to={'/'} className='btn bg-gradient-to-bl to-[#ff1a1a] from-[#F16767]text-white'>Go Back To Home !</Link>
+                    <Link to={'/'} className='btn bg-linear-to-bl to-[#ff1a1a] from-[#F16767]text-white'>Go Back To Home !</Link>
                 </div>
             </div>
             <Footer />

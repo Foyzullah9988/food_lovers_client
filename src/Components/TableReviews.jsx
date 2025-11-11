@@ -39,7 +39,7 @@ const TableReviews = ({ userData, index }) => {
                     </div>
 
                 </td>
-                <td>Purple</td>
+               
                 <th>
                     <button className="btn  btn-xs bg-linear-to-bl from-green-400 to-green-800">Edit</button>
                     <button className="btn  btn-xs bg-linear-to-bl from-red-400 to-red-800">Delete</button>

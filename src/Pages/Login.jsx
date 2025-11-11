@@ -99,7 +99,7 @@ const emailRef = useRef()
                                         </button>
                                     </div>
 
-                                    <button type='submit' className="btn bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Login</button>
+                                    <button type='submit' className="btn bg-linear-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Login</button>
                                 </fieldset>
                                 <p className='text-center'>Don't have an account?<Link to={'/auth/register'} className='text-blue-500 hover:underline'>Register</Link></p>
 

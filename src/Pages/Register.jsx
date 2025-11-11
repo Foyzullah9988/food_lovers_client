@@ -137,7 +137,7 @@ const Register = () => {
                                     <div>
 
                                     </div>
-                                    <button type='submit' className="w-full btn bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Register</button>
+                                    <button type='submit' className="w-full btn bg-linear-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all">Register</button>
                                 </fieldset>
                                 <p className='text-center'>Already have an account?<Link to={'/auth/login'} className='text-blue-500 hover:underline'>Login</Link></p>
                                 <div className='flex justify-between items-center'>
