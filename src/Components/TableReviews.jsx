@@ -1,9 +1,8 @@
 import React from 'react';
-import toast from 'react-hot-toast';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const TableReviews = ({ userData, index }) => {
+const TableReviews = ({ userData, index,handleDeleteForUi }) => {
     // console.log(userData._id);
     const dateObj = new Date(userData.date)
     const year = dateObj.toLocaleDateString()
@@ -30,16 +29,17 @@ const TableReviews = ({ userData, index }) => {
                     .then(data => {
                         console.log(data);
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+                handleDeleteForUi(userData._id)
                     }).catch(err => {
                         console.log(err.message);
                     })
+               
 
-
-
+                
             }
         });
     }

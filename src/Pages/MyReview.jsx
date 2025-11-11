@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import TableReviews from '../Components/TableReviews';
@@ -10,6 +10,11 @@ const MyReview = () => {
     // console.log(data);
     const filteredData = data.filter(d => d.email === user.email)
     // console.log(filteredData);
+    const [reviews,setReviews]=useState(filteredData);
+    const handleDeleteForUi=(id)=>{
+        const remainReview = reviews.filter(r=>r._id!==id)
+        setReviews(remainReview)
+    }
 
     return (
         <div className='container mx-auto'>
@@ -30,8 +35,12 @@ const MyReview = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredData &&
-                            filteredData.map((userData, index) => <TableReviews key={userData._id} userData={userData} index={index}/>
+                        {reviews &&
+                            reviews.map((userData, index) => <TableReviews 
+                            key={userData._id} 
+                            userData={userData} 
+                            index={index}
+                            handleDeleteForUi={handleDeleteForUi}/>
                             )}
 
                         <tr>

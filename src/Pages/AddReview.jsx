@@ -41,7 +41,7 @@ const AddReview = () => {
             }).catch(err => {
                 console.log(err.message);
             })
-        e.target.reset()
+        // e.target.reset()
     }
 
     return (
