@@ -1,9 +1,10 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const TableReviews = ({ userData, index }) => {
-    // console.log(userData);
+    // console.log(userData._id);
     const dateObj = new Date(userData.date)
     const year = dateObj.toLocaleDateString()
     const time = dateObj.toLocaleTimeString()
@@ -20,13 +21,25 @@ const TableReviews = ({ userData, index }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
+                fetch(`http://localhost:3000/products/${userData._id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }).catch(err => {
+                        console.log(err.message);
+                    })
 
-                
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+
+
             }
         });
     }
