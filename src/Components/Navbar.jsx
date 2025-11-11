@@ -106,6 +106,10 @@ const Navbar = ({ fixed = true }) => {
                                         isActive ? 'bg-linear-to-r from-amber-800 to-yellow-600  text-white font-semibold py-2 rounded-lg shadow-lg transition-all' : ''} p-1 rounded-sm hover:bg-linear-to-r  hover:from-yellow-600 hover:to-amber-800 text-white `}>
                                         <li> My Reviews</li>
                                     </NavLink>
+                                    <NavLink to={'/favorites'} className={({ isActive }) =>`${
+                                        isActive ? 'bg-linear-to-r from-amber-800 to-yellow-600 hover:from-yellow-800  text-white font-semibold py-2 rounded-lg shadow-lg transition-all' : ''} p-1 rounded-sm hover:bg-linear-to-r hover:from-amber-600  hover:to-yellow-800 text-white `}>
+                                        <li className=''>My Favorites”</li>
+                                    </NavLink>
                                     <li><Link to={'/'} onClick={handleLogout} className="btn btn-secondary bg-linear-to-r from-yellow-500 to-amber-600 
                                     hover:bg-linear-to-r 
                                     hover:from-yellow-600 hover:to-red-700 ">Logout</Link></li>

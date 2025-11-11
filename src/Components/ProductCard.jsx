@@ -27,7 +27,7 @@ const ProductCard = ({ d }) => {
         }).then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast.success('Add to favorite')
+                toast.success('Added to favorite')
             }).catch(err => {
                 console.log(err.message);
             })
@@ -42,7 +42,7 @@ const ProductCard = ({ d }) => {
 
             <figure>
                 <img
-                    className="w-full h-52 object-cover"
+                    className="w-full h-52 object-cover "
                     src={foodImage}
                     alt={foodName}
                 />

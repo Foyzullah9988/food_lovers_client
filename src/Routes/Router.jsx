@@ -14,6 +14,7 @@ import MyReview from "../Pages/MyReview";
 import PrivateRoute from "./PrivateRoute";
 import ProductsDetails from "../Pages/ProductsDetails";
 import UpdateReview from "../Pages/UpdateReview";
+import Favorites from "../Pages/Favorites";
 
 
 
@@ -81,6 +82,12 @@ export const router = createBrowserRouter([
     {
         path: '/products/add-review',
         element: <PrivateRoute><AddReview /></PrivateRoute>
+    },
+    {
+        path: '/favorites',
+        element: <PrivateRoute><Favorites /></PrivateRoute>,
+        hydrateFallbackElement:<Spinner/>,
+        loader:()=>fetch('http://localhost:3000/favorites')
     },
 
 
