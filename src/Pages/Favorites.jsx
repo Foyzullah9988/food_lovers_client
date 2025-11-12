@@ -50,7 +50,7 @@ const Favorites = () => {
     //                         </div>
     //                 </div>
     return (
-        <div className='flex flex-col min-h-screen bg-amber-800'>
+        <div className='flex flex-col min-h-screen '>
             <Navbar fixed={false} />
             <div className='container mx-auto flex-1 '>
                 <div className='flex justify-center items-center gap-2'>

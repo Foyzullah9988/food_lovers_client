@@ -2,9 +2,15 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
-import { MdPerson } from "react-icons/md";
+import { MdOutlineReviews, MdPerson } from "react-icons/md";
 import Spinner from './Spinner';
 import Error from './Error';
+import { FaHome } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa6';
+import { IoLogOut } from 'react-icons/io5';
+
+
+
 
 
 const Navbar = ({ fixed = true }) => {
@@ -12,26 +18,21 @@ const Navbar = ({ fixed = true }) => {
     // console.log(user?.photoURL);
     // console.log(user);
 
-    
+
     const links = <>
         <li><NavLink to='/'
-            className={({ isActive }) =>
-                isActive ? 'bg-[#FFE797] text-black' : ''
-            }
-        >Home</NavLink></li>
+            className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491]  hover:to-[#014d70]'
+        ><FaHome />Home</NavLink></li>
+
         <li><NavLink to='/products'
-            className={({ isActive }) =>
-                isActive ? 'bg-[#FFE797] text-black' : ''
-            }
-        >All Reviews</NavLink></li>
+            className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
+        ><MdOutlineReviews />All Reviews</NavLink></li>
 
         {
             !user &&
             <li>
                 <NavLink to='/auth/login'
-                    className={({ isActive }) =>
-                        isActive ? 'bg-[#FFE797] text-black' : ''
-                    }
+                    className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
                 >Login</NavLink>
             </li>
 
@@ -40,9 +41,7 @@ const Navbar = ({ fixed = true }) => {
             !user &&
             <li>
                 <NavLink to='/auth/register'
-                    className={({ isActive }) =>
-                        isActive ? 'bg-[#FFE797] text-black' : ''
-                    }
+                    className='p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
                 >Register</NavLink>
             </li>
 
@@ -57,28 +56,28 @@ const Navbar = ({ fixed = true }) => {
             console.log(err);
         })
     }
-
+    // bg-[#2F3E46]
     return (
-         <div className={`${fixed ? 'fixed top-0 left-0 w-full shadow-sm z-50' : 'relative'} bg-[#9e6161fa]`}>
+        <div className={`${fixed ? 'fixed top-0 left-0 w-full shadow-sm z-50' : 'relative'} bg-[#003450]`}>
 
             <div className="navbar z-50 container mx-auto ">
                 <div className="navbar-start ">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn bg-[#c9a69f9a] hover:bg-[#b48e86] btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn bg-[#002133] hover:bg-[#003b5a] btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu bg-[#EBD9D1] menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu bg-[#3C4F57] hover:bg-[#445861] text-[#F8F9FA] menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow space-y-1">
                             {
                                 links
                             }
                         </ul>
                     </div>
-                    <Link to={'/'} className="btn btn-ghost text-[#B0CE88] text-2xl font-bold"><span className='text-[#FCB53B]'>Food</span> Zone</Link>
+                    <Link to={'/'} className="btn btn-ghost text-[#A7C957] text-2xl font-bold"><span className='text-[#FFB703]'>Food</span> Zone</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 space-x-2">
                         {
                             links
                         }
@@ -97,23 +96,20 @@ const Navbar = ({ fixed = true }) => {
                                             className='w-12  rounded-full h-12 object-cover' title={user.displayName} />
                                     </div>
                                 </div>
-                                <ul tabIndex="-1" className="dropdown-content menu bg-[#B77466]  rounded-box z-1 w-52 p-2 shadow-sm space-y-1">
-                                    <NavLink to={'/products/add-review'} className={({ isActive }) =>`${
-                                        isActive ? 'bg-linear-to-r from-amber-800 to-yellow-600 hover:from-yellow-800  text-white font-semibold py-2 rounded-lg shadow-lg transition-all' : ''} p-1 rounded-sm hover:bg-linear-to-r hover:from-amber-600  hover:to-yellow-800 text-white `}>
+                                <ul tabIndex="-1" className="dropdown-content menu bg-[#3C4F57]  rounded-box z-1 w-52 p-2 shadow-sm font-semibold space-y-1">
+                                    <NavLink to={'/products/add-review'}
+                                        className='p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'> 
                                         <li className=''>Add Review</li>
                                     </NavLink>
-                                    <NavLink to={'/products/my-review'} className={({ isActive }) =>`${
-                                        isActive ? 'bg-linear-to-r from-amber-800 to-yellow-600  text-white font-semibold py-2 rounded-lg shadow-lg transition-all' : ''} p-1 rounded-sm hover:bg-linear-to-r  hover:from-yellow-600 hover:to-amber-800 text-white `}>
+                                    <NavLink to={'/products/my-review'} className='p-1 rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
                                         <li> My Reviews</li>
                                     </NavLink>
-                                    <NavLink to={'/favorites'} className={({ isActive }) =>`${
-                                        isActive ? 'bg-linear-to-r from-amber-800 to-yellow-600 hover:from-yellow-800  text-white font-semibold py-2 rounded-lg shadow-lg transition-all' : ''} p-1 rounded-sm hover:bg-linear-to-r hover:from-amber-600  hover:to-yellow-800 text-white `}>
-                                        <li className=''>My Favorites”</li>
+                                    <NavLink to={'/favorites'} className=' p-1 rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
+                                        <li className=''>My Favorites</li>
                                     </NavLink>
-                                    <li><Link to={'/'} onClick={handleLogout} className="btn btn-secondary bg-linear-to-r from-yellow-500 to-amber-600 
-                                    hover:bg-linear-to-r 
-                                    hover:from-yellow-600 hover:to-red-700 ">Logout</Link></li>
+                                    <li><Link to={'/'} onClick={handleLogout} className="btn  bg-linear-to-r from-cyan-800 to-cyan-600 hover:bg-linear-to-r hover:to-[#4a2424] hover:from-red-700 ">Logout<IoLogOut /></Link></li>
                                 </ul>
+                                <p className='bg-[#4a2424]'></p>
                             </div>
 
                         </div>

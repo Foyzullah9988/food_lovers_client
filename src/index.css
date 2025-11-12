@@ -2,3 +2,6 @@
 @plugin "daisyui";
 
 
+.active{
+    @apply   bg-linear-to-l from-[#307491] to-[#014d70] rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]
+}

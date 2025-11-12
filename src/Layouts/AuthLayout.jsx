@@ -10,7 +10,7 @@ const AuthLayout = () => {
 
             <Navbar fixed={false}/>
 
-            <div className='flex-1  mx-auto bg-center bg-cover w-full mt-16' style={{backgroundImage:"url('/bg.png')"}}>
+            <div className='flex-1  mx-auto bg-center bg-cover w-full ' style={{backgroundImage:"url('/bg.png')"}}>
                 <div className=''>
                     <Outlet />
                 </div>

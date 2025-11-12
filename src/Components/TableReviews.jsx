@@ -46,7 +46,7 @@ const TableReviews = ({ userData, index,handleDeleteForUi }) => {
 
     return (
         <>
-            <tr>
+            <tr className='text-black'>
 
                 <th>
                     <label>

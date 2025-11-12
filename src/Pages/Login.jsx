@@ -106,7 +106,7 @@ const emailRef = useRef()
                                 <div className='flex justify-between items-center'>
                                     <hr className='w-5/12' />or<hr className='w-5/12' />
                                 </div>
-                                <button type='button' className='flex justify-center items-center btn bg-white/50'
+                                <button type='button' className='flex justify-center items-center  btn bg-white/50'
                                     onClick={handleGoogleSignin}
                                 >
                                     <span><FcGoogle /></span> <span>Continue With Google</span>

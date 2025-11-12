@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router';
 import Aos from 'aos';
 import Challenge from '../Components/Challenge';
 import Guides from '../Components/Guides';
+import Book from '../Components/Book';
 
 const Home = () => {
     const data = useLoaderData();
@@ -16,7 +17,7 @@ const Home = () => {
 
         <div>
             <Hero data={data} />
-            <h2 className='text-4xl font-bold text-center mb-6  text-[#426733]'>Top Rated Reviews</h2>
+            <h2 className='text-4xl font-bold text-center mb-6  text-[#5E6D63]'>Top Rated Reviews</h2>
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4   '>
 
 
@@ -27,10 +28,14 @@ const Home = () => {
                 }
             </div>
             <div className=' flex justify-center items-center my-6'>
-                <Link to={'/products'} className='bg-[#B87C4C] text-white px-4 py-2 rounded-md hover:bg-[#ff9d00] transition-colors'>Show All</Link>
+                <Link to={'/products'} className='bg-[#EBD9D9] text-[#2F3E46] px-4 px-[20px] py-[10px] text-sm rounded-md hover:bg-[#E6BB50] font-semibold hover:text-white transition-colors'>Show All</Link>
             </div>
+
             <div>
                 <Challenge/>
+            </div>
+            <div>
+                <Book/>
             </div>
             <div>
                 <Guides/>

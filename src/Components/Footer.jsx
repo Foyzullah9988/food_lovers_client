@@ -4,9 +4,9 @@ import { IoLogoYoutube } from 'react-icons/io';
 
 const Footer = () => {
     return (
-        <div className='bg-base-200 pt-7'>
-            <footer className="footer footer-horizontal footer-center  text-base-content rounded p-10 container mx-auto">
-                <nav className="grid grid-flow-col gap-4">
+        <div className='bg-[#2C3639] pt-7 text-[#DADADA]'>
+            <footer className="footer footer-horizontal footer-center   rounded p-10 container mx-auto text-[#DADADA]">
+                <nav className="grid grid-flow-col gap-4 ">
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>

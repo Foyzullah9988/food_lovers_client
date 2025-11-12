@@ -55,7 +55,7 @@ const UpdateReview = () => {
             <Navbar fixed={false}/>
 
             <div className=''>
-                <div className='text-black  min-h-screen bg-center bg-cover w-full' style={{ backgroundImage: "url('/add.jpg')" }}>
+                <div className='  min-h-screen bg-center bg-cover w-full' style={{ backgroundImage: "url('/add.jpg')" }}>
                     <div className="hero container mx-auto ">
                         <div className="hero-content flex-col ">
 
