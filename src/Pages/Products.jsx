@@ -7,7 +7,7 @@ const Products = () => {
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
 
-    console.log(reviews);
+    // console.log(reviews);
     const sortedReviews = reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const Products = () => {
 
         fetchReviews();
     }, [search]);
-    console.log(search);
+    // console.log(search);
 
     return (
         <div className='container mx-auto pb-4'>

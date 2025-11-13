@@ -7,7 +7,7 @@ const TableReviews = ({ userData, index, handleDeleteForUi }) => {
     const dateObj = new Date(userData.date)
     const year = dateObj.toLocaleDateString()
     const time = dateObj.toLocaleTimeString()
-    console.log({ year, time })
+    // console.log({ year, time })
 
     const handleDelete = () => {
         Swal.fire({
@@ -27,7 +27,7 @@ const TableReviews = ({ userData, index, handleDeleteForUi }) => {
                     },
                 }).then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         Swal.fire({
                             title: "Deleted!",
                             text: "Your file has been deleted.",

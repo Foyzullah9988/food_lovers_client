@@ -44,7 +44,7 @@ const AddReview = () => {
             body: JSON.stringify(formData)
         }).then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Review added successfully')
                 navigate('/products')
             }).catch(err => {

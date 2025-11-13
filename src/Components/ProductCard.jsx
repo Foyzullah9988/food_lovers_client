@@ -65,7 +65,7 @@ const ProductCard = ({ d }) => {
                 body: JSON.stringify(newFavorite)
             }).then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setFavorite([...favorite, data])
 
                     toast.success('Added to favorite')

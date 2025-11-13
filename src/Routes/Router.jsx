@@ -88,7 +88,7 @@ export const router = createBrowserRouter([
         path: '/favorites',
         element: <PrivateRoute><Favorites /></PrivateRoute>,
         hydrateFallbackElement: <Spinner />,
-        loader: () => fetch('https://foodies-zone-eta.vercel.app/favorites')
+        loader: () => fetch('https://foodies-zone-eta.vercel.app/favorites'),
     },
 
 

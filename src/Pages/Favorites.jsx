@@ -13,10 +13,10 @@ const Favorites = () => {
     const [favorite, setFavorite] = useState(data);
 
     const { user } = use(AuthContext)
-    console.log(user);
+    // console.log(user);
 
     const userFav = favorite.filter(dat => dat.favorite_by === user.email)
-    console.log(data);
+    console.log(favorite);
 
 
     const handleDeleteForUi = (id) => {
@@ -35,7 +35,7 @@ const Favorites = () => {
                     handleDeleteForUi(id)
                     toast.success('Removed from favorite')
                 }
-                console.log(data);
+                // console.log(data);
 
             }).catch(err => {
                 console.log(err.message);
@@ -127,7 +127,7 @@ const Favorites = () => {
 
                                     <div className="mt-auto flex justify-end">
                                         <Link
-                                            to={`/products-details/${d._id}`}
+                                            to={`/products-details/${d.foodId}`}
                                             className="bg-[#52796F] text-[#FFFFFF] px-4 py-2 rounded-md hover:bg-[#355E52] hover:text-[#F1F1F1] transition-colors"
                                         >
                                             View Details

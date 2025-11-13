@@ -8,9 +8,9 @@ import Footer from '../Components/Footer';
 const UpdateReview = () => {
     const navigate = useNavigate();
     const { user } = use(AuthContext)
-    console.log(user);
+    // console.log(user);
     const data = useLoaderData()
-    console.log(data);
+    // console.log(data);
 
     const handleReview = (e) => {
         e.preventDefault();
@@ -42,7 +42,7 @@ const UpdateReview = () => {
             body: JSON.stringify(formData)
         }).then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 toast.success('Review updated successfully')
                 navigate('/products/my-review')
 
