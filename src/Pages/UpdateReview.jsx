@@ -81,8 +81,7 @@ const UpdateReview = () => {
                                         <label className="label text-white">Review Text</label>
                                         <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" defaultValue={data.reviewText} placeholder="Write your comment" required />
                                         <div className="card-actions justify-end">
-                                            <button className="btn bg-linear-to-r from-blue-600
-                                            to-green-700 hover:from-green-700  hover:to-blue-600 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Update Review</button>
+                                            <button className="btn bg-linear-to-r from-cyan-800 to-cyan-600 hover:from-cyan-600 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Update Review</button>
                                         </div>
 
                                     </fieldset>
