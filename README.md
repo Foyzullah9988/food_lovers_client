@@ -20,16 +20,21 @@ Home Page
  Hero Section — Interactive food-themed slider banner with eye-catching images and text.
  Featured Reviews — Dynamically displays 6 top-rated reviews from the database.
  “Show All” Button — Redirects to the All Reviews page.
- Extra Sections — Two additional sections highlighting the food community and trending dishes.
+ Extra Sections — THree additional sections :
+ 1:Challenge section
+ 2.Secret section
+ 3.Guide section
 
 All Reviews
+(Public)
 
  Shows all reviews from all users sorted by newest first.
  Each card includes food image, restaurant name, location, reviewer, and rating.
  Favorite (Heart) button to save reviews to your “My Favorites” list.
  Search feature to find reviews by food name using MongoDB $regex search.
 
-Add Review (Protected)
+Add Review
+(Protected)
 
  Logged-in users can add new reviews with:
 
@@ -47,16 +52,18 @@ Review Text
 
  Automatically includes user email and date.
 
-My Reviews (Protected)
+My Reviews 
+(Protected)
 
  Displays all reviews added by the logged-in user in a table.
  Edit Review — Opens form pre-filled with existing data for update.
  Delete Review — Confirmation modal before removing from database.
 
-My Favorites (Protected)
+My Favorites 
+(Protected)
 
- Displays all the favorite reviews of the logged-in user in a grid or card view.
- Optionally delete from favorites.
+ Displays all the favorite reviews of the logged-in user in a grid card view.
+ Favorite (Heart) button to delete reviews to your “My Favorites” list.
 
 Authentication
 
@@ -65,11 +72,11 @@ Authentication
  Redirects to homepage after successful registration.
  Login Page — Email, Password, and Google Login.
  Shows toast messages for success or failure.
- Logged-in user stays authenticated on reload (protected route persistence).
+
 
 Additional Features
 
- Loading spinner and skeleton during data fetch.
+ Loading spinner during data fetch.
  Custom 404 Error Page with fun image and “Back to Home” button.
  Real-time toast messages instead of default alerts.
  Clean UI design using TailwindCSS and DaisyUI.
