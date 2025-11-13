@@ -51,8 +51,8 @@ const Favorites = () => {
 
             <div className='container mx-auto flex-1 my-8'>
                 <div className='flex justify-center items-center gap-2 mb-6 '>
-                    <h2 className='md:text-4xl text-2xl font-bold text-center  text-[#5E6D63]'>My Favorites </h2>
-                    <span ><FaHeart color='#e72e91' size={28} /></span>
+                    <h2 className='md:text-4xl text-2xl font-bold text-center  text-[#5E6D63]'>My Favorites ({userFav.length}) </h2>
+                    
                 </div>
                 {
                     userFav.length === 0 &&

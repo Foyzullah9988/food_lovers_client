@@ -21,7 +21,7 @@ const MyReview = () => {
     return (
         <div className='my-8 bg-[#F4F6F5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]'>
             <div className='container mx-auto '>
-                <h2 className='md:text-4xl text-2xl font-bold text-center mb-6  text-[#5E6D63]'>My Reviews</h2>
+                <h2 className='md:text-4xl text-2xl font-bold text-center mb-6  text-[#5E6D63]'>My Reviews ({reviews.length})</h2>
                 <div className="overflow-x-auto">
                     <table className="table">
 
