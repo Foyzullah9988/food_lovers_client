@@ -7,34 +7,75 @@ import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const ProductCard = ({ d }) => {
-    // console.log(d);
+    console.log(d);
+
     const { user } = use(AuthContext)
     const { foodImage, foodName, location, rating, restaurantName, reviewText, _id, reviewerName } = d;
-    const [liked, setLiked] = useState(false);
+
+    const [favorite, setFavorite] = useState([])
+    const [isFavorite, setIsFavorite] = useState(false)
+    // const [loading, setLoading] = useState(false)
+    // console.log(favorite);
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
         Aos.refresh();
     }, []);
 
-    const handleFavorite = () => {
-        fetch(`http://localhost:3000/favorites`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...d, favorite_by: user.email })
-        }).then(res => res.json())
+    useEffect(() => {
+        if (!user) return
+        // if(!loading) return
+        fetch('https://foodies-zone-eta.vercel.app/favorites')
+            .then(res => res.json())
             .then(data => {
-                console.log(data);
-                toast.success('Added to favorite')
-            }).catch(err => {
+                // console.log(data);
+                setFavorite(data)
+                const favoriteExists = data.some(f =>
+                    f.favorite_by === user?.email && f.foodId === _id
+                )
+                setIsFavorite(favoriteExists)
+                // setLoading(false)
+            })
+            .catch(err => {
                 console.log(err.message);
             })
-    }
+    }, [_id, user,])
 
+    const handleFavorite = () => {
+        if (!user) {
+            toast.error('login')
+            return
+        }
+
+        const existFavoriteItem = favorite.find(f => f.favorite_by === user.email && f.foodId === _id);
+
+        if (!existFavoriteItem) {
+            const newFavorite = {
+                foodImage, foodName, location, rating, restaurantName, reviewText, reviewerName,
+                favorite_by: user.email,
+                foodId: _id
+            };
+            setIsFavorite(true)
+
+            fetch(`https://foodies-zone-eta.vercel.app/favorites`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newFavorite)
+            }).then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    setFavorite([...favorite, data])
+
+                    toast.success('Added to favorite')
+                }).catch(err => {
+                    console.log(err.message);
+                })
+        }
+    }
     return (
-        <div data-aos="fade-up" className="rounded-xl bg-[#E8EDE5] shadow-sm shadow-[#8D9776] flex flex-col overflow-hidden">
+        <div  className="rounded-xl bg-[#E8EDE5] shadow-sm shadow-[#8D9776] flex flex-col overflow-hidden">
 
 
 
@@ -54,16 +95,14 @@ const ProductCard = ({ d }) => {
                     <h2 className="card-title font-semibold text-lg text-[#2B2B2B]">{foodName}</h2>
                     <div className="flex justify-end ">
                         <button
-                            onClick={() => { handleFavorite(), setLiked(!liked) }}
+                            onClick={handleFavorite} disabled={isFavorite} 
                             className="relative flex items-center justify-center w-12 h-12 rounded-lg focus:outline-none"
                         >
-                            <svg
-                                className={`w-7 h-7 transition-transform duration-200 ${liked ? 'scale-125 text-[#E63946] fill-pink-500' : 'text-white fill-white'}`}
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 17.503 15.625"
-                            >
-                                <FaHeart title='Favorite' />
-                            </svg>
+
+                            <FaHeart title='Favorite' className={`w-7 h-7 transition-transform duration-200 ${isFavorite
+                                ? 'scale-125 text-[#E63946] fill-pink-500'
+                                : 'text-gray-300 fill-gray-300'}`} />
+
 
                         </button>
                     </div>
@@ -101,5 +140,6 @@ const ProductCard = ({ d }) => {
         </div>
     );
 };
+
 
 export default ProductCard;

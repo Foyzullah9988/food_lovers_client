@@ -11,34 +11,33 @@ const Home = () => {
     const sortedData = data.sort((a, b) => Number(b.rating) - Number(a.rating))
     const slicedData = sortedData.slice(0, 6)
 
-
-
     return (
-
         <div>
             <Hero data={data} />
-            <h2 className='text-4xl font-bold text-center mb-6  text-[#5E6D63]'>Top Rated Reviews</h2>
+            <div className='mb-6'>
+                <h2 className='md:text-4xl text-2xl font-bold text-center   text-[#5E6D63]'>Top Rated Reviews</h2>
+                <p className='text-xl text-[#6b7d71] text-center'>
+                    Discover, Taste Food & Share Honest  Reviews
+                </p>
+            </div>
             <div className=' grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4   '>
-
-
                 {
-                    slicedData.map((d, index) =>
-                        <ProductCard key={index} d={d} />
+                    slicedData.map(d =>
+                        <ProductCard key={d._id} d={d} />
                     )
                 }
             </div>
             <div className=' flex justify-center items-center my-6'>
-                <Link to={'/products'} className='bg-[#EBD9D9] text-[#2F3E46] px-4 px-[20px] py-[10px] text-sm rounded-md hover:bg-[#E6BB50] font-semibold hover:text-white transition-colors'>Show All</Link>
-            </div>
-
-            <div>
-                <Challenge/>
+                <Link to={'/products'} className='bg-[#52796F] text-[#FFFFFF] px-4 py-2 rounded-md hover:bg-[#355E52] hover:text-[#F1F1F1] transition-colors'>Show All</Link>
             </div>
             <div>
-                <Book/>
+                <Challenge />
             </div>
             <div>
-                <Guides/>
+                <Book />
+            </div>
+            <div>
+                <Guides />
             </div>
         </div>
     );

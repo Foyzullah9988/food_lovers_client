@@ -5,7 +5,7 @@ export default function Book() {
 
   return (
     <div className=" flex flex-col mt-10 justify-center items-center">
-      <h2 className="text-[#5E6D63] text-4xl font-bold mb-2 text-center">Best Deals For Foodies</h2>
+      <h2 className="text-[#5E6D63] text-2xl md:text-4xl  font-bold mb-2 text-center">Best Deals For Foodies</h2>
       <div
         className="relative w-[250px] mt-5 h-[300px] rounded-xl bg-white shadow-lg flex items-center justify-center text-black [perspective:2000px]"
         onMouseEnter={() => setIsOpen(true)}
@@ -13,7 +13,7 @@ export default function Book() {
       >
 
         <div className="bg-[#fff8e1] border-2 border-dashed border-[#d32f2f]/40 p-4  rounded-lg max-w-[220px] mx-auto text-center font-sans">
-          <h3 className="text-[#d32f2f] font-semibold mb-2">🍛 Secret Discount for You!</h3>
+          <h3 className="text-[#d32f2f]  font-semibold mb-2">Secret Discount for You!</h3>
           <p className="text-sm mb-3">
             Use this special code at <strong>Dhaka Street Bites</strong> to get a tasty deal.
           </p>

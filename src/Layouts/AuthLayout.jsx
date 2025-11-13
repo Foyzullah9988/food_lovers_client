@@ -8,11 +8,14 @@ const AuthLayout = () => {
         <div className='flex flex-col min-h-screen'>
 
 
-            <Navbar fixed={false}/>
+            <Navbar fixed={false} />
 
-            <div className='flex-1  mx-auto bg-center bg-cover w-full ' style={{backgroundImage:"url('/bg.png')"}}>
-                <div className=''>
-                    <Outlet />
+            <div className='relative flex-1  mx-auto bg-center bg-cover w-full min-h-[84vh]' style={{ backgroundImage: "url('/bg.png')" }}>
+
+                <div className='absolute inset-0 backdrop-blur-md bg-black/30'>
+                    <div className='relative z-10 flex justify-center items-center '>
+                        <Outlet />
+                    </div>
                 </div>
             </div>
             <Footer />

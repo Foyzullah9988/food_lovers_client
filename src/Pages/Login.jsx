@@ -14,7 +14,9 @@ const Login = () => {
     const { setUser, login, loginGoogle } = use(AuthContext)
     const [show, setShow] = useState(false)
     const [error, setError] = useState('');
-const emailRef = useRef()
+    const emailRef = useRef()
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -26,7 +28,7 @@ const emailRef = useRef()
             .then(res => {
                 setUser(res.user)
                 toast.success('Signin successful');
-                navigate(`${location.state ? location.state : '/'}`)
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 console.log(err.message);
@@ -39,30 +41,30 @@ const emailRef = useRef()
             .then((res) => {
                 setUser(res.user)
                 toast.success('Google signin success')
-                navigate(`${location.state ? location.state : '/'}`)
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 console.log(err);
             })
     }
 
-    const handleForgetPassword=()=>{
-        const email = emailRef.current.value;
-      
-      navigate('/auth/forgot',{state:{email}})
-    }
+    // const handleForgetPassword = () => {
+    //     const email = emailRef.current.value;
+
+    //     navigate('/auth/forgot', { state: { email } })
+    // }
     // console.log(user);
     return (
         <div>
 
-            <div className=" my-5  ">
+            <div className=" my-20  ">
                 <div className="hero  ">
                     <div className=" space-y-2 ">
                         <div className="text-center ">
 
                         </div>
                         <div className="card bg-black/50 backdrop-blur-sm  w-full max-w-sm shrink-0 shadow-2xl">
-                            <h1 className="text-4xl text-center px-2 pt-2 font-bold">Login now!</h1>
+                            <h1 className="md:text-4xl text-2xl text-center px-2 pt-2 font-bold">Login now!</h1>
 
                             <form onSubmit={handleLogin} className="card-body  rounded-xl">
                                 <fieldset className="fieldset">
@@ -74,7 +76,7 @@ const emailRef = useRef()
                                         <input name='password' type={show ? 'text' : "password"} className="input text-black bg-white" placeholder="Password" required />
                                         <span onClick={() => setShow(!show)} className='absolute top-7 right-2 text-xl cursor-pointer'>
                                             {
-                                                show ? <FaRegEye color='black'/> : <FaRegEyeSlash color='black'/>
+                                                show ? <FaRegEye color='black' /> : <FaRegEyeSlash color='black' />
                                             }
 
                                             {/*  */}
@@ -84,7 +86,6 @@ const emailRef = useRef()
                                         error && <p className="text-red-400">Invalid email or password</p>
                                     }
                                     <div>
-                                        
 
 
 
@@ -94,8 +95,11 @@ const emailRef = useRef()
 
 
 
-                                        <button  type='button '
-                                        onClick={handleForgetPassword} className="link link-hover ">  Forgot password?
+
+                                        <button type='button '
+
+                                            // onClick={handleForgetPassword}
+                                            className="link link-hover ">  Forgot password?
                                         </button>
                                     </div>
 

@@ -21,18 +21,18 @@ const Navbar = ({ fixed = true }) => {
 
     const links = <>
         <li><NavLink to='/'
-            className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491]  hover:to-[#014d70]'
+            className='p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
         ><FaHome />Home</NavLink></li>
 
-        <li><NavLink to='/products'
-            className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
+        <li><NavLink to='/products' end
+            className=' p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
         ><MdOutlineReviews />All Reviews</NavLink></li>
 
         {
             !user &&
             <li>
                 <NavLink to='/auth/login'
-                    className=' p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
+                    className=' p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
                 >Login</NavLink>
             </li>
 
@@ -41,7 +41,7 @@ const Navbar = ({ fixed = true }) => {
             !user &&
             <li>
                 <NavLink to='/auth/register'
-                    className='p-1 rounded-sm font-semibold hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
+                    className='p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'
                 >Register</NavLink>
             </li>
 
@@ -68,13 +68,21 @@ const Navbar = ({ fixed = true }) => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu bg-[#3C4F57] hover:bg-[#445861] text-[#F8F9FA] menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow space-y-1">
+                            className="dropdown-content menu bg-[#3C4F57]  rounded-box z-1 w-52 p-2 shadow-sm font-semibold space-y-1">
                             {
                                 links
                             }
                         </ul>
                     </div>
-                    <Link to={'/'} className="btn btn-ghost text-[#A7C957] text-2xl font-bold"><span className='text-[#FFB703]'>Food</span> Zone</Link>
+                    <div className="">
+                        <Link to={'/'} className="bg-[#003450] ml-2 text-[#A7C957] text-2xl md:text-4xl font-bold flex items-center space-x-2">
+                        <figure>
+                            <img src="/nav.png" className='md:w-12  rounded-full md:h-12 h-8 w-8 object-cover' alt="" />
+                        </figure>
+                        <p><span className='text-[#FFB703]'>Foodies</span> Zone</p>
+                        </Link> 
+                        
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 space-x-2">
@@ -97,17 +105,21 @@ const Navbar = ({ fixed = true }) => {
                                     </div>
                                 </div>
                                 <ul tabIndex="-1" className="dropdown-content menu bg-[#3C4F57]  rounded-box z-1 w-52 p-2 shadow-sm font-semibold space-y-1">
-                                    <NavLink to={'/products/add-review'}
-                                        className='p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'> 
-                                        <li className=''>Add Review</li>
-                                    </NavLink>
-                                    <NavLink to={'/products/my-review'} className='p-1 rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
-                                        <li> My Reviews</li>
-                                    </NavLink>
+                                    <li>
+                                        <NavLink to={'/products/add-review'} end
+                                            className='p-1 rounded-sm  hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
+                                            Add Reviews
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to={'/products/my-review'} end className='p-1 rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
+                                            My Reviews
+                                        </NavLink>
+                                    </li>
                                     <NavLink to={'/favorites'} className=' p-1 rounded-sm hover:bg-linear-to-r hover:from-[#307491] hover:to-[#014d70]'>
                                         <li className=''>My Favorites</li>
                                     </NavLink>
-                                    <li><Link to={'/'} onClick={handleLogout} className="btn  bg-linear-to-r from-cyan-800 to-cyan-600 hover:bg-linear-to-r hover:to-[#4a2424] hover:from-red-700 ">Logout<IoLogOut /></Link></li>
+                                    <li><Link to={'/'} onClick={handleLogout} className="btn  bg-linear-to-r to-cyan-800 from-cyan-600 hover:bg-linear-to-r hover:to-cyan-600  hover:from-cyan-800">Logout<IoLogOut /></Link></li>
                                 </ul>
                                 <p className='bg-[#4a2424]'></p>
                             </div>

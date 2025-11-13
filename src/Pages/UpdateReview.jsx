@@ -1,11 +1,12 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 
 const UpdateReview = () => {
+    const navigate = useNavigate();
     const { user } = use(AuthContext)
     console.log(user);
     const data = useLoaderData()
@@ -18,7 +19,7 @@ const UpdateReview = () => {
         if (rating > 5) {
             toast.error('Rating should be 5 or less')
             return
-        }else if(isNaN(rating)){
+        } else if (isNaN(rating)) {
             toast.error('Rating should be in number')
             return
         }
@@ -33,7 +34,7 @@ const UpdateReview = () => {
             reviewText: form.comment.value,
         }
 
-        fetch(`http://localhost:3000/products/${data._id}`, {
+        fetch(`https://foodies-zone-eta.vercel.app/products/${data._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,16 +44,17 @@ const UpdateReview = () => {
             .then(data => {
                 console.log(data);
                 toast.success('Review updated successfully')
+                navigate('/products/my-review')
+
             }).catch(err => {
                 console.log(err.message);
             })
-        e.target.reset()
     }
 
     return (
         <div className=''>
 
-            <Navbar fixed={false}/>
+            <Navbar fixed={false} />
 
             <div className=''>
                 <div className='  min-h-screen bg-center bg-cover w-full' style={{ backgroundImage: "url('/add.jpg')" }}>
@@ -61,7 +63,7 @@ const UpdateReview = () => {
 
                             <div className="card bg-black/50 backdrop-blur-sm w-[400px] sm:w-[500px] mx-auto shrink-0 shadow-2xl">
                                 <div className="text-center ">
-                                    <h1 className="text-2xl font-bold text-white mt-2 -mb-5">Review here</h1>
+                                    <h1 className="text-2xl font-bold text-white mt-2 -mb-5">Update Your Review</h1>
 
                                 </div>
                                 <form onSubmit={handleReview} className="card-body">
@@ -79,7 +81,8 @@ const UpdateReview = () => {
                                         <label className="label text-white">Review Text</label>
                                         <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" defaultValue={data.reviewText} placeholder="Write your comment" required />
                                         <div className="card-actions justify-end">
-                                            <button className="btn bg-linear-to-r from-yellow-500 to-amber-600 hover:from-blue-600 hover:to-green-700 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Add Review</button>
+                                            <button className="btn bg-linear-to-r from-blue-600
+                                            to-green-700 hover:from-green-700  hover:to-blue-600 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Update Review</button>
                                         </div>
 
                                     </fieldset>

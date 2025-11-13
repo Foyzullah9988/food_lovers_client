@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import ProductsDetails from "../Pages/ProductsDetails";
 import UpdateReview from "../Pages/UpdateReview";
 import Favorites from "../Pages/Favorites";
+import PublicRoutes from "./PublicRoutes";
 
 
 
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <Home />,
-                loader: () => fetch('http://localhost:3000/products')
+                loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
             }
         ],
     },
@@ -42,19 +43,19 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <Products />,
-                loader: () => fetch('http://localhost:3000/products')
+                // loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
             },
             {
                 path: '/products/my-review',
                 element: <PrivateRoute><MyReview /></PrivateRoute>,
-                loader: () => fetch('http://localhost:3000/products')
+                loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
             },
 
         ]
     },
     {
         path: '/auth',
-        element: <AuthLayout />,
+        element: <PublicRoutes><AuthLayout /></PublicRoutes>,
         errorElement: <Error />,
         children: [
             {
@@ -69,13 +70,13 @@ export const router = createBrowserRouter([
     },
     {
         path: '/products-details/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
+        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/products-details/${params.id}`),
         hydrateFallbackElement: <Spinner />,
         element: <PrivateRoute><ProductsDetails /></PrivateRoute>
     },
     {
         path: '/update-products/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/products-details/${params.id}`),
+        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/products-details/${params.id}`),
         hydrateFallbackElement: <Spinner />,
         element: <PrivateRoute><UpdateReview /></PrivateRoute>
     },
@@ -86,8 +87,8 @@ export const router = createBrowserRouter([
     {
         path: '/favorites',
         element: <PrivateRoute><Favorites /></PrivateRoute>,
-        hydrateFallbackElement:<Spinner/>,
-        loader:()=>fetch('http://localhost:3000/favorites')
+        hydrateFallbackElement: <Spinner />,
+        loader: () => fetch('https://foodies-zone-eta.vercel.app/favorites')
     },
 
 

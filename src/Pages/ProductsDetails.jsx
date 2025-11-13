@@ -23,7 +23,7 @@ const ProductsDetails = () => {
 
     return (
         <div className='flex flex-col min-h-screen'>
-            <Navbar />
+            <Navbar fixed={false} />
             <div className='flex-1  mx-auto bg-center bg-cover w-full ' style={{ backgroundImage: "url('/details.jpg')" }}>
                 <div className='container mx-auto  text-white bg-black/50 backdrop-blur-sm'>
                     <div className='p-4'>
@@ -48,23 +48,25 @@ const ProductsDetails = () => {
                             </div>
                         </div>
                         <div className='w-full mx-auto'>
-                            <h2 className='text-center my-4 text-3xl font-semibold'>Reviewed By</h2>
+                            <h2 className='text-center my-4 md:text-3xl text-xl font-semibold'>Reviewed By</h2>
                             <div className='space-y-2 w-96 mx-auto'>
                                 <div className='flex items-center gap-9'>
-                                    <h2 className='text-2xl font-semibold'>{reviewerName}</h2>
+                                    <h2 className='md:text-2xl text-md font-semibold'>{reviewerName}</h2>
                                 </div>
-                                <div className='flex items-center gap-9'>
-                                    <div className='border  text-[#FFC107] w-12 p-1 rounded-full flex justify-center items-center gap-1'>
-                                        <span className='mb-[3px] text-[#FFC107]'><FaStar /></span>
-                                        <span>{rating}</span>
-                                    </div>
-                                    Out of 5
+                                <div className='flex items-center gap-2'>
+                                    {Array.from({ length: 5 }).map((_, index) => (
+                                        <FaStar
+                                            key={index}
+                                            className={index < rating ? 'text-[#FFC107]' : 'text-gray-300'}
+                                        />
+                                    ))}
+                                    <span className='ml-2'>{rating} out of 5</span>
                                 </div>
                                 <p>{reviewText}</p>
                                 <hr />
                                 <div className='flex flex-col items-end'>
                                     <p>{time}</p>
-                                <p>{year}</p>
+                                    <p>{year}</p>
                                 </div>
 
                             </div>

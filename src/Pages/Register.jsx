@@ -94,7 +94,7 @@ const Register = () => {
                     <div className=" space-y-2 ">
 
                         <div className=" bg-black/50 backdrop-blur-sm w-full shrink-0 shadow-2xl rounded-xl">
-                            <h1 className="text-4xl text-center -mb-3  px-2 pt-2  font-bold">Register now!</h1>
+                            <h1 className="md:text-4xl text-2xl text-center -mb-3  px-2 pt-2  font-bold">Register now!</h1>
 
 
                             <form onSubmit={handleRegister} className="card-body rounded-xl ">

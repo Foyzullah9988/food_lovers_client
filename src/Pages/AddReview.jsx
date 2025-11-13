@@ -3,9 +3,11 @@ import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+import { useNavigate } from 'react-router';
 
 const AddReview = () => {
     const { user } = use(AuthContext)
+    const navigate = useNavigate()
     // console.log(user);
 
     const handleReview = (e) => {
@@ -34,7 +36,7 @@ const AddReview = () => {
             reviewerName: user.displayName,
         }
 
-        fetch('http://localhost:3000/products', {
+        fetch('https://foodies-zone-eta.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,10 +46,11 @@ const AddReview = () => {
             .then(data => {
                 console.log(data);
                 toast.success('Review added successfully')
+                navigate('/products')
             }).catch(err => {
                 console.log(err.message);
             })
-        // e.target.reset()
+        e.target.reset()
     }
 
     return (
@@ -55,7 +58,7 @@ const AddReview = () => {
             <Navbar fixed={false}/>
             <div className='text-black  min-h-screen bg-center bg-cover w-full' style={{ backgroundImage: "url('/add.jpg')" }}>
                 <div className="hero container mx-auto ">
-                    <div className="hero-content flex-col ">
+                    <div className="hero-content  ">
 
                         <div className="card bg-black/50 backdrop-blur-sm w-[400px] sm:w-[500px] mx-auto shrink-0 shadow-2xl">
                             <div className="text-center ">
@@ -77,7 +80,9 @@ const AddReview = () => {
                                     <label className="label text-white">Review Text</label>
                                     <textarea name='comment' type="text" cols={40} rows={5} className=" w-full  text-black bg-white  rounded-sm p-1" placeholder="Write your comment" required />
                                     <div className="card-actions justify-end">
-                                        <button className="btn bg-linear-to-r from-cyan-800 to-cyan-600 hover:from-cyan-600 hover:to-cyan-800 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">Add Review</button>
+                                        <button className="btn bg-linear-to-r from-cyan-800 to-cyan-600 hover:from-cyan-600 hover:to-cyan-800 text-white font-semibold py-2 rounded-lg shadow-md transition-all mt-4">
+                                            
+                                            Post</button>
                                     </div>
 
                                 </fieldset>

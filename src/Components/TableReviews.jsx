@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const TableReviews = ({ userData, index,handleDeleteForUi }) => {
+const TableReviews = ({ userData, index, handleDeleteForUi }) => {
     // console.log(userData._id);
     const dateObj = new Date(userData.date)
     const year = dateObj.toLocaleDateString()
@@ -20,7 +20,7 @@ const TableReviews = ({ userData, index,handleDeleteForUi }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/products/${userData._id}`, {
+                fetch(`https://foodies-zone-eta.vercel.app/products/${userData._id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -29,24 +29,21 @@ const TableReviews = ({ userData, index,handleDeleteForUi }) => {
                     .then(data => {
                         console.log(data);
                         Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-                handleDeleteForUi(userData._id)
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        handleDeleteForUi(userData._id)
                     }).catch(err => {
                         console.log(err.message);
                     })
-               
-
-                
             }
         });
     }
 
     return (
         <>
-            <tr className='text-black'>
+            <tr className='text-black shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]'>
 
                 <th>
                     <label>
@@ -74,14 +71,14 @@ const TableReviews = ({ userData, index,handleDeleteForUi }) => {
                         <hr />
                         <span>{time}</span>
                     </div>
-
+ 
                 </td>
 
                 <th>
-                    <Link to={`/update-products/${userData._id}`} className="btn  btn-xs bg-linear-to-bl from-green-400 to-green-800">Edit</Link>
-                    <button onClick={handleDelete} className="btn  btn-xs bg-linear-to-bl from-red-400 to-red-800">Delete</button>
+                    <Link to={`/update-products/${userData._id}`} className="btn  btn-xs bg-[#52796F] text-white ">Edit</Link>
+                    <button onClick={handleDelete} className="btn  btn-xs bg-red-700 text-white">Delete</button>
                 </th>
-
+                
             </tr>
         </>
     );
