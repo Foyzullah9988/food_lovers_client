@@ -7,7 +7,7 @@ const Error = () => {
     return (
         <div className='flex flex-col min-h-screen bg-base-100'>
             <Navbar />
-            <div className='flex flex-col flex-1 justify-center items-center '>
+            <div className='flex flex-col flex-1 justify-center items-center mt-6'>
                 <div className=''>
                     <img src='/error-404.png' alt="" className='h-96' />
                 </div>

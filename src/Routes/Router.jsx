@@ -16,6 +16,11 @@ import ProductsDetails from "../Pages/ProductsDetails";
 import UpdateReview from "../Pages/UpdateReview";
 import Favorites from "../Pages/Favorites";
 import PublicRoutes from "./PublicRoutes";
+import AboutUs from "../Components/Footer/AboutUs";
+import JoinCommunity from "../Components/Footer/JoinComunity";
+import Jobs from "../Components/Footer/Jobs";
+import PrivacyPolicy from "../Components/Footer/PrivacyPolicy";
+import ChallengeGuide from "../Components/Footer/ChallengeGuide ";
 
 
 
@@ -72,7 +77,7 @@ export const router = createBrowserRouter([
         path: '/products-details/:id',
         loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/products-details/${params.id}`),
         hydrateFallbackElement: <Spinner />,
-        element: <PrivateRoute><ProductsDetails /></PrivateRoute>
+        element: <ProductsDetails />
     },
     {
         path: '/update-products/:id',
@@ -90,6 +95,27 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Spinner />,
         loader: () => fetch('https://foodies-zone-eta.vercel.app/favorites'),
     },
+    {
+        path: '/about-us',
+        element: <AboutUs />
+    },
+    {
+        path: '/join-community',
+        element: <JoinCommunity />
+    },
+    {
+        path: '/jobs',
+        element: <Jobs />
+    },
+    {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />
+    },
+    {
+        path: '/challenge-guide',
+        element: <ChallengeGuide />
+    },
+
 
 
 

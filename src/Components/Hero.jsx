@@ -45,7 +45,7 @@ const Hero = ({ data }) => {
                                     <div>
                                         <img src={d.foodImage} className=' object-cover absolute ' alt="" />
                                     </div>
-                                    <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10'>
+                                    <div className='absolute top-0 left-0 w-full h-full bg-black opacity-65 z-10'>
 
                                     </div>
                                     <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center px-4 z-20 flex items-center gap-2'>
