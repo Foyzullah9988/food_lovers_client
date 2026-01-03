@@ -109,9 +109,9 @@ const ChallengeGuide = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#F9F7F3] to-white">
+        <div className="min-h-screen bg-linear-to-b from-[#F9F7F3] to-white">
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#5E6D63] to-[#3C8C47] text-white">
+            <div className="bg-linear-to-r from-[#5E6D63] to-[#3C8C47] text-white">
                 <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
                     <Link
                         to="/challenges"
@@ -186,11 +186,11 @@ const ChallengeGuide = () => {
                             <div key={index} className="relative">
                                 {/* Connection line */}
                                 {index < steps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent -translate-y-1/2 translate-x-1/2 z-0"></div>
+                                    <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-linear-to-r from-transparent via-gray-200 to-transparent -translate-y-1/2 translate-x-1/2 z-0"></div>
                                 )}
 
                                 <div className="relative bg-white p-6 rounded-2xl shadow-lg text-center z-10 hover:shadow-xl transition-shadow">
-                                    <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${step.color} text-white mb-4`}>
+                                    <div className={`inline-flex p-4 rounded-2xl bg-linear-to-r ${step.color} text-white mb-4`}>
                                         {step.icon}
                                     </div>
                                     <div className="flex items-center justify-center mb-2">
@@ -241,7 +241,7 @@ const ChallengeGuide = () => {
 
                 {/* Tips & Best Practices */}
                 <section className="mb-16">
-                    <div className="bg-gradient-to-r from-[#F3EFEA] to-[#F0F7EE] rounded-2xl p-8">
+                    <div className="bg-linear-to-r from-[#F3EFEA] to-[#F0F7EE] rounded-2xl p-8">
                         <h2 className="text-3xl font-bold text-[#2C3E2F] mb-6">
                             <FiBarChart2 className="inline mr-3" />
                             Pro Tips for Success
@@ -250,7 +250,7 @@ const ChallengeGuide = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div className="flex items-start gap-3">
-                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-[#2C3E2F] mb-1">Plan Your Shopping</h4>
                                         <p className="text-[#6B7A72]">Check challenge requirements before shopping to maximize efficiency.</p>
@@ -258,7 +258,7 @@ const ChallengeGuide = () => {
                                 </div>
 
                                 <div className="flex items-start gap-3">
-                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-[#2C3E2F] mb-1">Start Small</h4>
                                         <p className="text-[#6B7A72">Begin with lower-target challenges to understand how they work.</p>
@@ -268,7 +268,7 @@ const ChallengeGuide = () => {
 
                             <div className="space-y-4">
                                 <div className="flex items-start gap-3">
-                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-[#2C3E2F] mb-1">Set Reminders</h4>
                                         <p className="text-[#6B7A72]">Mark challenge end dates to ensure you complete them on time.</p>
@@ -276,7 +276,7 @@ const ChallengeGuide = () => {
                                 </div>
 
                                 <div className="flex items-start gap-3">
-                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                                    <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-[#2C3E2F] mb-1">Combine Challenges</h4>
                                         <p className="text-[#6B7A72]">Look for overlapping requirements to complete multiple challenges faster.</p>
@@ -305,9 +305,9 @@ const ChallengeGuide = () => {
                                         {item.question}
                                     </span>
                                     {activeFAQ === item.id ? (
-                                        <FiChevronUp className="w-6 h-6 text-[#5E6D63] flex-shrink-0" />
+                                        <FiChevronUp className="w-6 h-6 text-[#5E6D63] shrink-0" />
                                     ) : (
-                                        <FiChevronDown className="w-6 h-6 text-[#5E6D63] flex-shrink-0" />
+                                        <FiChevronDown className="w-6 h-6 text-[#5E6D63] shrink-0" />
                                     )}
                                 </button>
 
@@ -350,7 +350,7 @@ const ChallengeGuide = () => {
 
                 {/* Call to Action */}
                 <div className="text-center">
-                    <div className="bg-gradient-to-r from-[#5E6D63] to-[#3C8C47] rounded-2xl p-8 text-white">
+                    <div className="bg-linear-to-r from-[#5E6D63] to-[#3C8C47] rounded-2xl p-8 text-white">
                         <h2 className="text-3xl font-bold mb-4">Ready to Start Your First Challenge?</h2>
                         <p className="text-white/90 mb-8 max-w-2xl mx-auto">
                             Join thousands of foodies who are already earning rewards and discovering new favorites.

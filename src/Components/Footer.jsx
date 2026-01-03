@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaSquareXTwitter } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaLinkedin, FaSquareXTwitter } from 'react-icons/fa6';
 import { IoLogoYoutube, IoLocationOutline, IoCallOutline, IoMailOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
 import { FiArrowUpRight } from 'react-icons/fi';
@@ -119,20 +119,20 @@ const Footer = () => {
                         <div className="flex space-x-4 mb-8">
                             {[
                                 { 
-                                    icon: <FaSquareXTwitter size={24} />, 
-                                    href: 'https://x.com/', 
-                                    label: 'Twitter',
+                                    icon: <FaLinkedin size={24} />, 
+                                    href: 'https://www.linkedin.com/in/foyzullah-dev/', 
+                                    label: 'LinkedIn',
+                                    color: 'hover:bg-blue-500/20 hover:text-white'
+                                },
+                                { 
+                                    icon: <FaGithub size={24} />, 
+                                    href: 'https://github.com/Foyzullah9988', 
+                                    label: 'GitHub',
                                     color: 'hover:bg-black/20 hover:text-white'
                                 },
                                 { 
-                                    icon: <IoLogoYoutube size={24} />, 
-                                    href: 'https://www.youtube.com/', 
-                                    label: 'YouTube',
-                                    color: 'hover:bg-red-500/20 hover:text-red-400'
-                                },
-                                { 
                                     icon: <FaFacebook size={24} />, 
-                                    href: 'https://www.facebook.com/', 
+                                    href: 'https://www.facebook.com/foyzullah.foyzullah.98', 
                                     label: 'Facebook',
                                     color: 'hover:bg-blue-600/20 hover:text-blue-400'
                                 },
@@ -169,23 +169,6 @@ const Footer = () => {
                         
                         
                     </div>
-                </div>
-
-                {/* Stats Bar (Hidden on mobile) */}
-                <div className="hidden lg:flex items-center justify-center space-x-8 mt-8 pt-6 border-t border-[#3D4A4D]">
-                    {[
-                        { value: '50K+', label: 'Foodies' },
-                        { value: '10K+', label: 'Reviews' },
-                        { value: '4.8', label: 'Avg Rating' },
-                        { value: '500+', label: 'Restaurants' },
-                    ].map((stat, index) => (
-                        <div key={index} className="text-center">
-                            <div className="text-2xl font-bold bg-linear-to-r from-[#FFB703] to-[#A7C957] bg-clip-text text-transparent">
-                                {stat.value}
-                            </div>
-                            <div className="text-xs text-gray-500">{stat.label}</div>
-                        </div>
-                    ))}
                 </div>
             </div>
         </footer>

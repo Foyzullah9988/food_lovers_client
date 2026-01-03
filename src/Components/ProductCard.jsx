@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaHeart, FaRegHeart, FaStar } from 'react-icons/fa6';
+import { FaHeart, FaRegHeart, FaStar, FaUser, FaArrowRight } from 'react-icons/fa6';
 import { Link } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import toast from 'react-hot-toast';
-import 'aos/dist/aos.css';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const ProductCard = ({ d, onFavoriteToggle }) => {
     const { user } = useContext(AuthContext);
@@ -11,7 +11,7 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
 
     const [deletingId, setDeletingId] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
-    const [loading, setLoading] = useState(true); // Start with true to prevent flash
+    const [loading, setLoading] = useState(true);
     const [currentFavoriteId, setCurrentFavoriteId] = useState(null);
 
     // Fetch favorite status for this specific product
@@ -24,11 +24,9 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
         }
 
         setLoading(true);
-        // Fetch specifically for this product and user
         fetch(`https://foodies-zone-eta.vercel.app/favorites?foodId=${_id}&email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                // If data is an array, find the item
                 if (Array.isArray(data)) {
                     const favoriteItem = data.find(f => f.foodId === _id && f.favorite_by === user.email);
                     if (favoriteItem) {
@@ -39,7 +37,6 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
                         setCurrentFavoriteId(null);
                     }
                 } 
-                // If data is a single object
                 else if (data && data._id) {
                     setIsFavorite(true);
                     setCurrentFavoriteId(data._id);
@@ -67,7 +64,6 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
         setDeletingId(_id);
 
         if (isFavorite) {
-            // Remove from favorites
             if (!currentFavoriteId) {
                 toast.error('Cannot find favorite item');
                 setDeletingId(null);
@@ -80,11 +76,9 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0 || data.success) {
-                        // Toggle state immediately
                         setIsFavorite(false);
                         setCurrentFavoriteId(null);
                         
-                        // Call parent callback if provided
                         if (onFavoriteToggle) {
                             onFavoriteToggle(_id, false);
                         }
@@ -102,7 +96,6 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
                     setDeletingId(null);
                 });
         } else {
-            // Add to favorites
             const newFavorite = {
                 foodImage,
                 foodName,
@@ -125,11 +118,9 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // Update state immediately with the new favorite data
                     setIsFavorite(true);
                     setCurrentFavoriteId(data._id || data.insertedId);
                     
-                    // Call parent callback if provided
                     if (onFavoriteToggle) {
                         onFavoriteToggle(_id, true, data);
                     }
@@ -146,45 +137,48 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
         }
     };
 
-    // If loading, show skeleton
+    // Skeleton loading state
     if (loading) {
         return (
-            <div className="group rounded-2xl bg-linear-to-br from-white to-gray-50 shadow-lg overflow-hidden border border-gray-100 animate-pulse">
-                <div className="relative overflow-hidden h-40 bg-gray-200"></div>
-                <div className="p-6">
-                    <div className="h-6 bg-gray-200 rounded mb-4"></div>
-                    <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded mb-4"></div>
-                    <div className="h-10 bg-gray-200 rounded"></div>
+            <div className="group rounded-2xl bg-white shadow-lg overflow-hidden border border-slate-200 animate-pulse">
+                <div className="relative h-48 bg-slate-200"></div>
+                <div className="p-6 space-y-4">
+                    <div className="h-5 bg-slate-200 rounded"></div>
+                    <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+                    <div className="h-16 bg-slate-200 rounded"></div>
+                    <div className="h-10 bg-slate-200 rounded"></div>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="group rounded-2xl bg-linear-to-br from-white to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+        <div className="group relative rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-200 hover:-translate-y-1">
             {/* Image Container */}
-            <div className="relative overflow-hidden h-40">
+            <div className="relative h-48 overflow-hidden">
                 <img
-                    className="w-full h-full object-cover scale-110 transition-transform duration-500 ease-in-out group-hover:scale-100"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     src={foodImage}
                     alt={foodName}
                     loading="lazy"
                 />
 
+                {/* linear Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 via-slate-900/10 to-transparent"></div>
+
                 {/* Rating Badge */}
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-md flex items-center gap-1">
-                    <FaStar className="text-yellow-500 text-sm" />
-                    <span className="font-bold text-gray-800">{rating}</span>
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-full shadow-lg border border-amber-200 flex items-center gap-1">
+                    <FaStar className="text-amber-500" />
+                    <span className="font-bold text-slate-800">{rating}</span>
                 </div>
 
                 {/* Favorite Button */}
                 <button
                     onClick={handleFavorite}
                     disabled={deletingId === _id}
-                    className={`absolute top-4 left-4 p-2 rounded-full backdrop-blur-sm transition-all duration-300 
-                        ${isFavorite ? 'bg-red-50/80' : 'bg-white/80'} 
-                        hover:shadow-lg hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed`}
+                    className={`absolute top-4 left-4 p-2.5 rounded-full backdrop-blur-sm transition-all duration-300 
+                        ${isFavorite ? 'bg-red-50/90' : 'bg-white/90'} 
+                        hover:shadow-lg hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed border border-slate-300/50`}
                     title={isFavorite ? "Remove from favorites" : "Add to favorites"}
                 >
                     {deletingId === _id ? (
@@ -197,7 +191,7 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
                     ) : (
                         <FaRegHeart 
                             size={20} 
-                            className="text-gray-400 hover:text-red-400 transition-colors duration-300"
+                            className="text-slate-500 hover:text-red-500 transition-colors duration-300"
                         />
                     )}
                 </button>
@@ -205,40 +199,46 @@ const ProductCard = ({ d, onFavoriteToggle }) => {
 
             {/* Content Container */}
             <div className="p-6">
-                {/* Food Name & Restaurant */}
-                <div className="mb-2">
-                    <h3 className="text-xl font-bold text-gray-900 line-clamp-1">
-                        {foodName}
-                    </h3>
-                    {restaurantName && (
-                        <p className="text-sm text-gray-600 mt-1">at {restaurantName}</p>
-                    )}
-                </div>
+                {/* Food Name */}
+                <h3 className="text-xl font-bold text-slate-900  line-clamp-1">
+                    {foodName}
+                </h3>
+
+                
 
                 {/* Review Section */}
                 <div className="mb-4">
-                    <div className="flex items-center gap-3 mb-2">
-                        <div className='flex items-center gap-2'>
-                            <p className="text-sm text-gray-500">Reviewed by</p>
-                            <h4 className="font-semibold text-gray-900">{reviewerName}</h4>
+                    {/* Reviewer Info */}
+                    <div className="flex items-center gap-3 mb-3">
+                        
+                        <div className="flex items-center gap-2 justify-center">
+                            <p className="text-xs text-slate-500">Reviewed by</p>
+                            <p className="font-semibold text-slate-900 truncate">{reviewerName}</p>
+                            
                         </div>
                     </div>
-                    <p className="text-gray-700 line-clamp-2 italic">
-                        "{reviewText}"
-                    </p>
+                    
+                    {/* Review Text */}
+                    <div className="relative">
+                        <span className="text-2xl text-amber-400/30 absolute -top-2 -left-1">"</span>
+                        <p className="text-slate-700 text-sm line-clamp-2 italic pl-4">
+                            {reviewText}
+                        </p>
+                    </div>
                 </div>
 
                 {/* View Details Button */}
                 <Link
                     to={`/products-details/${_id}`}
-                    className="block w-full bg-linear-to-r from-[#426733] to-[#4e7a3d] text-white rounded-lg hover:from-green-800 hover:to-emerald-800 shadow-sm hover:shadow text-center py-3 px-4 font-semibold transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                    className="group/btn w-full bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 >
                     View Details
-                    <svg className="inline-block ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                    <FaArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </Link>
             </div>
+
+            {/* Hover Effect Border */}
+            <div className="absolute inset-0 border-2 border-transparent group-hover:border-amber-400/20 rounded-2xl pointer-events-none transition-all duration-500"></div>
             
             {/* Add CSS for heartbeat animation */}
             <style jsx>{`
