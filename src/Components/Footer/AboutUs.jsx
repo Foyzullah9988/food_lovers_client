@@ -16,16 +16,16 @@ import { Link } from 'react-router';
 const AboutUs = () => {
     const stats = [
         { icon: <Users />, value: "50K+", label: "Active Foodies" },
-        { icon: <Award />, value: "10K+", label: "Reviews Posted" },
+        { icon: <Award />, value: "10K+", label: "products Posted" },
         { icon: <Globe />, value: "500+", label: "Cities Covered" },
         { icon: <Heart />, value: "4.8", label: "Avg. Rating" },
     ];
 
     const team = [
         {
-            name: "Sarah Chen",
+            name: "MD Foyzullah",
             role: "Founder & CEO",
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
             bio: "Former food critic with 10+ years experience"
         },
         {
@@ -37,7 +37,7 @@ const AboutUs = () => {
         {
             name: "Maria Garcia",
             role: "Content Director",
-            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
+            image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
             bio: "Ex-restaurant owner turned food blogger"
         },
         {
@@ -50,36 +50,36 @@ const AboutUs = () => {
 
     const values = [
         {
-            icon: <Heart className="text-red-500" size={32} />,
+            icon: <Heart className="text-red-500 dark:text-red-400" size={32} />,
             title: "Authenticity First",
-            description: "We believe in honest, unbiased reviews from real food lovers."
+            description: "We believe in honest, unbiased products from real food lovers."
         },
         {
-            icon: <Target className="text-orange-500" size={32} />,
+            icon: <Target className="text-orange-500 dark:text-orange-400" size={32} />,
             title: "Community Driven",
             description: "Our platform grows through the passion of our foodie community."
         },
         {
-            icon: <Globe className="text-blue-500" size={32} />,
+            icon: <Globe className="text-blue-500 dark:text-blue-400" size={32} />,
             title: "Global Taste",
             description: "Celebrating diverse cuisines from street food to fine dining."
         },
         {
-            icon: <TrendingUp className="text-green-500" size={32} />,
+            icon: <TrendingUp className="text-green-500 dark:text-green-400" size={32} />,
             title: "Continuous Growth",
             description: "Always evolving to serve our foodie community better."
         },
     ];
 
     return (
-        <div className='bg-white'>
+        <div className='bg-white dark:bg-gray-900'>
             <Navbar />
-            <div className="space-y-16 mt-20 mb-6">
+            <div className="space-y-16 pt-[104px] m-6">
                 {/* Mission Section */}
-                <section className="text-center max-w-4xl mx-auto">
-                    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
-                        <p className="text-lg text-gray-600 mb-6">
+                <section className="text-center max-w-4xl mx-auto px-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12 border border-slate-200 dark:border-gray-700">
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Our Mission</h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                             At Foodies Zone, we're passionate about creating a global community where food lovers can discover,
                             share, and celebrate culinary experiences. We believe every meal tells a story, and every review helps
                             someone discover their next favorite dish.
@@ -87,11 +87,11 @@ const AboutUs = () => {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
                             {stats.map((stat, index) => (
                                 <div key={index} className="text-center">
-                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-500 mb-4">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-500 mb-4">
                                         {stat.icon}
                                     </div>
-                                    <div className="text-2xl font-bold text-gray-800">{stat.value}</div>
-                                    <div className="text-gray-600">{stat.label}</div>
+                                    <div className="text-2xl font-bold text-gray-800 dark:text-white">{stat.value}</div>
+                                    <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
@@ -99,27 +99,27 @@ const AboutUs = () => {
                 </section>
 
                 {/* Values Section */}
-                <section>
-                    <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Values</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <section className="px-4">
+                    <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Our Values</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                         {values.map((value, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow">
-                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+                            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center hover:shadow-lg dark:hover:shadow-gray-900/50 transition-shadow border border-slate-200 dark:border-gray-700">
+                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
                                     {value.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-800 mb-3">{value.title}</h3>
-                                <p className="text-gray-600">{value.description}</p>
+                                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">{value.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 {/* Story Section */}
-                <section className="bg-linear-to-r from-orange-50 to-red-50 rounded-2xl p-8">
+                <section className="bg-linear-to-r from-amber-50 to-red-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 mx-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
-                            <div className="space-y-4 text-gray-600">
+                            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Our Story</h2>
+                            <div className="space-y-4 text-gray-600 dark:text-gray-300">
                                 <p>
                                     Founded in 2023 by a group of passionate food lovers, Foodies Zone started as a small blog
                                     sharing restaurant recommendations among friends. What began as a hobby quickly grew into
@@ -136,7 +136,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="bg-orange-700 rounded-2xl p-6 text-white">
+                            <div className="bg-amber-600 dark:bg-amber-700 rounded-2xl p-6 text-white">
                                 <div className="flex items-center mb-4">
                                     <Star className="fill-current mr-2" size={24} />
                                     <h3 className="text-2xl font-bold">Our Impact</h3>
@@ -165,20 +165,20 @@ const AboutUs = () => {
                 </section>
 
                 {/* Team Section */}
-                <section>
-                    <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Meet Our Team</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <section className="px-4">
+                    <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">Meet Our Team</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                         {team.map((member, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:transform hover:scale-[1.02] transition-transform">
+                            <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:transform hover:scale-[1.02] transition-transform border border-slate-200 dark:border-gray-700">
                                 <div className="p-6">
                                     <img
                                         src={member.image}
                                         alt={member.name}
-                                        className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-orange-100"
+                                        className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-amber-100 dark:border-amber-900/30"
                                     />
-                                    <h3 className="text-xl font-bold text-center text-gray-800 mb-1">{member.name}</h3>
-                                    <p className="text-orange-500 text-center font-semibold mb-3">{member.role}</p>
-                                    <p className="text-gray-600 text-center text-sm">{member.bio}</p>
+                                    <h3 className="text-xl font-bold text-center text-gray-800 dark:text-white mb-1">{member.name}</h3>
+                                    <p className="text-amber-600 dark:text-amber-500 text-center font-semibold mb-3">{member.role}</p>
+                                    <p className="text-gray-600 dark:text-gray-300 text-center text-sm">{member.bio}</p>
                                 </div>
                             </div>
                         ))}
@@ -186,16 +186,16 @@ const AboutUs = () => {
                 </section>
 
                 {/* CTA Section */}
-                <section className="text-center bg-linear-to-r from-orange-700 to-red-700 rounded-2xl p-12 text-white">
+                <section className="text-center bg-linear-to-r from-amber-600 to-red-600 dark:from-amber-700 dark:to-amber-800 rounded-2xl p-12 text-white mx-4">
                     <h2 className="text-3xl font-bold mb-4">Join Our Foodie Community</h2>
                     <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
                         Share your culinary adventures, discover new favorites, and connect with food lovers worldwide.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to={'/join-community'} className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                        <Link to={'/join-community'} className="bg-white text-amber-600 dark:text-amber-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-100 transition">
                             Join Now
                         </Link>
-                        <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-orange-600 transition">
+                        <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-amber-600 dark:hover:text-amber-700 transition">
                             Learn More
                         </button>
                     </div>

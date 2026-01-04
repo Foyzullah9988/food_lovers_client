@@ -4,7 +4,7 @@ Local Food Lovers Network
 
 Purpose :
 
-Local Food Lovers Network is a community-driven food review platform where people can explore, share, and celebrate local food experiences. From hidden street food gems to homestyle meals and restaurant dishes, users can post reviews with photos, rate foods, and discover what others around them are enjoying. It’s an SPA with authentication, protected routes, and a modern UI using Firebase, MongoDB, Express, React, and Node.js.
+Local Food Lovers Network is a community-driven food review platform where people can explore, share, and celebrate local food experiences. From hidden street food gems to homestyle meals and restaurant dishes, users can post products with photos, rate foods, and discover what others around them are enjoying. It’s an SPA with authentication, protected routes, and a modern UI using Firebase, MongoDB, Express, React, and Node.js.
 
 live site: https://food-lovers-c1f94.web.app/
 github repository : https://github.com/Foyzullah9988/food_lovers_client
@@ -18,25 +18,25 @@ Fully Responsive SPA
 Home Page
 
  Hero Section — Interactive food-themed slider banner with eye-catching images and text.
- Featured Reviews — Dynamically displays 6 top-rated reviews from the database.
- “Show All” Button — Redirects to the All Reviews page.
+ Featured products — Dynamically displays 6 top-rated products from the database.
+ “Show All” Button — Redirects to the All products page.
  Extra Sections — THree additional sections :
  1:Challenge section
  2.Secret section
  3.Guide section
 
-All Reviews
+All products
 (Public)
 
- Shows all reviews from all users sorted by newest first.
+ Shows all products from all users sorted by newest first.
  Each card includes food image, restaurant name, location, reviewer, and rating.
- Favorite (Heart) button to save reviews to your “My Favorites” list.
- Search feature to find reviews by food name using MongoDB $regex search.
+ Favorite (Heart) button to save products to your “My Favorites” list.
+ Search feature to find products by food name using MongoDB $regex search.
 
 Add Review
 (Protected)
 
- Logged-in users can add new reviews with:
+ Logged-in users can add new products with:
 
 Food Name
 
@@ -52,18 +52,18 @@ Review Text
 
  Automatically includes user email and date.
 
-My Reviews 
+My products 
 (Protected)
 
- Displays all reviews added by the logged-in user in a table.
+ Displays all products added by the logged-in user in a table.
  Edit Review — Opens form pre-filled with existing data for update.
  Delete Review — Confirmation modal before removing from database.
 
 My Favorites 
 (Protected)
 
- Displays all the favorite reviews of the logged-in user in a grid card view.
- Favorite (Heart) button to delete reviews to your “My Favorites” list.
+ Displays all the favorite products of the logged-in user in a grid card view.
+ Favorite (Heart) button to delete products to your “My Favorites” list.
 
 Authentication
 

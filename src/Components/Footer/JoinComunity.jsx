@@ -13,7 +13,7 @@ const JoinCommunity = () => {
 
     const communityStats = [
         { icon: <FaUsers />, label: 'Active Members', value: '10K+', color: 'text-blue-500' },
-        { icon: <FaTrophy />, label: 'Monthly Reviews', value: '25K+', color: 'text-yellow-500' },
+        { icon: <FaTrophy />, label: 'Monthly products', value: '25K+', color: 'text-yellow-500' },
         { icon: <FaUtensils />, label: 'Restaurants', value: '5K+', color: 'text-green-500' },
         { icon: <FaHeart />, label: 'Foodies', value: '50K+', color: 'text-red-500' },
     ];
@@ -52,8 +52,8 @@ const JoinCommunity = () => {
 
     return (
         <div>
-            <Navbar/>
-            <section className="py-20 mt-16 px-4 bg-linear-to-br from-gray-50 to-emerald-50">
+           
+            <section className="py-20  px-4 bg-linear-to-br from-gray-50 to-emerald-50">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial="initial"

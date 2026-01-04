@@ -8,7 +8,7 @@ const Footer = () => {
     
 
     return (
-        <footer className="bg-linear-to-b mt-6 from-[#1E2729] to-[#2C3639] text-[#DADADA] pt-12 pb-8 relative overflow-hidden">
+        <footer className="bg-linear-to-b  from-[#1E2729] to-[#2C3639] text-[#DADADA] pt-12 pb-8 relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#FFB703] via-[#A7C957] to-[#FFB703]"></div>
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-linear-to-br from-[#FFB703]/10 to-[#A7C957]/10 rounded-full blur-3xl"></div>
@@ -84,7 +84,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center">
                                 <IoCallOutline className="text-[#FFB703] mr-3 shrink-0" size={20} />
-                                <span className="text-gray-400">+880 170809-9988</span>
+                                <span className="text-gray-400">+880 1708-099988</span>
                             </li>
                             <li className="flex items-center">
                                 <IoMailOutline className="text-[#FFB703] mr-3 shrink-0" size={20} />

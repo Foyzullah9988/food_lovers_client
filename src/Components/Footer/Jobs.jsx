@@ -69,7 +69,7 @@ const Jobs = () => {
             location: "Remote",
             salary: "$80K - $95K",
             experience: "4+ years",
-            description: "Curate and edit food reviews from our global community.",
+            description: "Curate and edit food products from our global community.",
             tags: ["Editing", "Food Writing", "Community", "Content"],
             featured: true
         },

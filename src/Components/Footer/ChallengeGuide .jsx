@@ -17,6 +17,8 @@ import {
     FiBarChart2
 } from 'react-icons/fi';
 import { MdFoodBank, MdLocalOffer, MdOutlineSecurity } from 'react-icons/md';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 const ChallengeGuide = () => {
     const [activeFAQ, setActiveFAQ] = useState(null);
@@ -63,7 +65,7 @@ const ChallengeGuide = () => {
         },
         {
             icon: <FiShoppingBag className="w-8 h-8" />,
-            title: "Shop Required Products",
+            title: "Shop Required products",
             description: "Add the specified products to your cart. Challenge products are clearly marked.",
             color: "from-green-500 to-emerald-400"
         },
@@ -109,9 +111,10 @@ const ChallengeGuide = () => {
     };
 
     return (
-        <div className="min-h-screen bg-linear-to-b from-[#F9F7F3] to-white">
+        <div className="min-h-screen bg-linear-to-b from-[#F9F7F3] to-white dark:from-gray-900 dark:to-gray-800">
+            <Navbar/>
             {/* Header */}
-            <div className="bg-linear-to-r from-[#5E6D63] to-[#3C8C47] text-white">
+            <div className="bg-linear-to-r mt-[70px] from-[#5E6D63] to-[#3C8C47] dark:from-gray-800 dark:to-gray-700 text-white">
                 <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
                     <Link
                         to="/challenges"
@@ -138,38 +141,38 @@ const ChallengeGuide = () => {
             <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
                 {/* Quick Stats */}
                 <div className="grid md:grid-cols-3 gap-6 mb-12">
-                    <div className="bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-gray-700">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-blue-100 rounded-xl">
-                                <FiUsers className="w-8 h-8 text-blue-600" />
+                            <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+                                <FiUsers className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-[#2C3E2F]">10,000+</h3>
-                                <p className="text-[#6B7A72]">Active Participants</p>
+                                <h3 className="text-2xl font-bold text-[#2C3E2F] dark:text-white">10,000+</h3>
+                                <p className="text-[#6B7A72] dark:text-gray-300">Active Participants</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-gray-700">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-green-100 rounded-xl">
-                                <FiAward className="w-8 h-8 text-green-600" />
+                            <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl">
+                                <FiAward className="w-8 h-8 text-green-600 dark:text-green-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-[#2C3E2F]">85%</h3>
-                                <p className="text-[#6B7A72]">Completion Rate</p>
+                                <h3 className="text-2xl font-bold text-[#2C3E2F] dark:text-white">85%</h3>
+                                <p className="text-[#6B7A72] dark:text-gray-300">Completion Rate</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-slate-200 dark:border-gray-700">
                         <div className="flex items-center gap-4">
-                            <div className="p-3 bg-amber-100 rounded-xl">
-                                <MdLocalOffer className="w-8 h-8 text-amber-600" />
+                            <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
+                                <MdLocalOffer className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-[#2C3E2F]">$250K+</h3>
-                                <p className="text-[#6B7A72]">Total Rewards Given</p>
+                                <h3 className="text-2xl font-bold text-[#2C3E2F] dark:text-white">$250K+</h3>
+                                <p className="text-[#6B7A72] dark:text-gray-300">Total Rewards Given</p>
                             </div>
                         </div>
                     </div>
@@ -177,7 +180,7 @@ const ChallengeGuide = () => {
 
                 {/* How It Works */}
                 <section className="mb-16">
-                    <h2 className="text-3xl font-bold text-[#2C3E2F] mb-8 text-center">
+                    <h2 className="text-3xl font-bold text-[#2C3E2F] dark:text-white mb-8 text-center">
                         How It Works in 4 Simple Steps
                     </h2>
 
@@ -186,22 +189,22 @@ const ChallengeGuide = () => {
                             <div key={index} className="relative">
                                 {/* Connection line */}
                                 {index < steps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-linear-to-r from-transparent via-gray-200 to-transparent -translate-y-1/2 translate-x-1/2 z-0"></div>
+                                    <div className="hidden lg:block absolute top-1/2 right-0 w-full h-0.5 bg-linear-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent -translate-y-1/2 translate-x-1/2 z-0"></div>
                                 )}
 
-                                <div className="relative bg-white p-6 rounded-2xl shadow-lg text-center z-10 hover:shadow-xl transition-shadow">
+                                <div className="relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg text-center z-10 hover:shadow-xl dark:hover:shadow-gray-900/50 transition-shadow border border-slate-200 dark:border-gray-700">
                                     <div className={`inline-flex p-4 rounded-2xl bg-linear-to-r ${step.color} text-white mb-4`}>
                                         {step.icon}
                                     </div>
                                     <div className="flex items-center justify-center mb-2">
-                                        <span className="inline-flex items-center justify-center w-8 h-8 bg-[#F0F7EE] text-[#3C8C47] rounded-full font-bold mr-2">
+                                        <span className="inline-flex items-center justify-center w-8 h-8 bg-[#F0F7EE] dark:bg-gray-700 text-[#3C8C47] dark:text-amber-500 rounded-full font-bold mr-2">
                                             {index + 1}
                                         </span>
-                                        <h3 className="text-xl font-bold text-[#2C3E2F]">
+                                        <h3 className="text-xl font-bold text-[#2C3E2F] dark:text-white">
                                             {step.title}
                                         </h3>
                                     </div>
-                                    <p className="text-[#6B7A72]">
+                                    <p className="text-[#6B7A72] dark:text-gray-300">
                                         {step.description}
                                     </p>
                                 </div>
@@ -212,24 +215,24 @@ const ChallengeGuide = () => {
 
                 {/* Benefits */}
                 <section className="mb-16">
-                    <h2 className="text-3xl font-bold text-[#2C3E2F] mb-8 text-center">
+                    <h2 className="text-3xl font-bold text-[#2C3E2F] dark:text-white mb-8 text-center">
                         Why Join Challenges?
                     </h2>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {benefits.map((benefit, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl dark:hover:shadow-gray-900/50 transition-shadow border border-slate-200 dark:border-gray-700">
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-[#F0F7EE] rounded-xl">
-                                        <div className="text-[#3C8C47]">
+                                    <div className="p-3 bg-[#F0F7EE] dark:bg-gray-700 rounded-xl">
+                                        <div className="text-[#3C8C47] dark:text-amber-500">
                                             {benefit.icon}
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-[#2C3E2F] mb-2">
+                                        <h3 className="text-xl font-bold text-[#2C3E2F] dark:text-white mb-2">
                                             {benefit.title}
                                         </h3>
-                                        <p className="text-[#6B7A72]">
+                                        <p className="text-[#6B7A72] dark:text-gray-300">
                                             {benefit.description}
                                         </p>
                                     </div>
@@ -241,8 +244,8 @@ const ChallengeGuide = () => {
 
                 {/* Tips & Best Practices */}
                 <section className="mb-16">
-                    <div className="bg-linear-to-r from-[#F3EFEA] to-[#F0F7EE] rounded-2xl p-8">
-                        <h2 className="text-3xl font-bold text-[#2C3E2F] mb-6">
+                    <div className="bg-linear-to-r from-[#F3EFEA] to-[#F0F7EE] dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 border border-slate-200 dark:border-gray-700">
+                        <h2 className="text-3xl font-bold text-[#2C3E2F] dark:text-white mb-6">
                             <FiBarChart2 className="inline mr-3" />
                             Pro Tips for Success
                         </h2>
@@ -252,16 +255,16 @@ const ChallengeGuide = () => {
                                 <div className="flex items-start gap-3">
                                     <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
-                                        <h4 className="font-bold text-[#2C3E2F] mb-1">Plan Your Shopping</h4>
-                                        <p className="text-[#6B7A72]">Check challenge requirements before shopping to maximize efficiency.</p>
+                                        <h4 className="font-bold text-[#2C3E2F] dark:text-white mb-1">Plan Your Shopping</h4>
+                                        <p className="text-[#6B7A72] dark:text-gray-300">Check challenge requirements before shopping to maximize efficiency.</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-3">
                                     <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
-                                        <h4 className="font-bold text-[#2C3E2F] mb-1">Start Small</h4>
-                                        <p className="text-[#6B7A72">Begin with lower-target challenges to understand how they work.</p>
+                                        <h4 className="font-bold text-[#2C3E2F] dark:text-white mb-1">Start Small</h4>
+                                        <p className="text-[#6B7A72] dark:text-gray-300">Begin with lower-target challenges to understand how they work.</p>
                                     </div>
                                 </div>
                             </div>
@@ -270,16 +273,16 @@ const ChallengeGuide = () => {
                                 <div className="flex items-start gap-3">
                                     <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
-                                        <h4 className="font-bold text-[#2C3E2F] mb-1">Set Reminders</h4>
-                                        <p className="text-[#6B7A72]">Mark challenge end dates to ensure you complete them on time.</p>
+                                        <h4 className="font-bold text-[#2C3E2F] dark:text-white mb-1">Set Reminders</h4>
+                                        <p className="text-[#6B7A72] dark:text-gray-300">Mark challenge end dates to ensure you complete them on time.</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-3">
                                     <FiCheckCircle className="w-6 h-6 text-green-500 mt-1 shrink-0" />
                                     <div>
-                                        <h4 className="font-bold text-[#2C3E2F] mb-1">Combine Challenges</h4>
-                                        <p className="text-[#6B7A72]">Look for overlapping requirements to complete multiple challenges faster.</p>
+                                        <h4 className="font-bold text-[#2C3E2F] dark:text-white mb-1">Combine Challenges</h4>
+                                        <p className="text-[#6B7A72] dark:text-gray-300">Look for overlapping requirements to complete multiple challenges faster.</p>
                                     </div>
                                 </div>
                             </div>
@@ -289,7 +292,7 @@ const ChallengeGuide = () => {
 
                 {/* FAQ Section */}
                 <section className="mb-12">
-                    <h2 className="text-3xl font-bold text-[#2C3E2F] mb-8 text-center">
+                    <h2 className="text-3xl font-bold text-[#2C3E2F] dark:text-white mb-8 text-center">
                         <FiHelpCircle className="inline mr-3" />
                         Frequently Asked Questions
                     </h2>
@@ -299,21 +302,21 @@ const ChallengeGuide = () => {
                             <div key={item.id} className="mb-4">
                                 <button
                                     onClick={() => toggleFAQ(item.id)}
-                                    className="w-full text-left bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow flex justify-between items-center"
+                                    className="w-full text-left bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg dark:hover:shadow-gray-900/50 transition-shadow flex justify-between items-center border border-slate-200 dark:border-gray-700"
                                 >
-                                    <span className="text-lg font-semibold text-[#2C3E2F] pr-4">
+                                    <span className="text-lg font-semibold text-[#2C3E2F] dark:text-white pr-4">
                                         {item.question}
                                     </span>
                                     {activeFAQ === item.id ? (
-                                        <FiChevronUp className="w-6 h-6 text-[#5E6D63] shrink-0" />
+                                        <FiChevronUp className="w-6 h-6 text-[#5E6D63] dark:text-gray-400 shrink-0" />
                                     ) : (
-                                        <FiChevronDown className="w-6 h-6 text-[#5E6D63] shrink-0" />
+                                        <FiChevronDown className="w-6 h-6 text-[#5E6D63] dark:text-gray-400 shrink-0" />
                                     )}
                                 </button>
 
                                 {activeFAQ === item.id && (
-                                    <div className="mt-2 bg-[#F9F7F3] p-6 rounded-xl border border-[#F0F0F0]">
-                                        <p className="text-[#6B7A72] leading-relaxed">
+                                    <div className="mt-2 bg-[#F9F7F3] dark:bg-gray-800 p-6 rounded-xl border border-[#F0F0F0] dark:border-gray-700">
+                                        <p className="text-[#6B7A72] dark:text-gray-300 leading-relaxed">
                                             {item.answer}
                                         </p>
                                     </div>
@@ -324,33 +327,33 @@ const ChallengeGuide = () => {
                 </section>
 
                 {/* Security & Trust */}
-                <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-12 border border-slate-200 dark:border-gray-700">
                     <div className="flex items-center gap-4 mb-6">
-                        <MdOutlineSecurity className="w-10 h-10 text-[#3C8C47]" />
-                        <h3 className="text-2xl font-bold text-[#2C3E2F]">Safe & Secure</h3>
+                        <MdOutlineSecurity className="w-10 h-10 text-[#3C8C47] dark:text-amber-500" />
+                        <h3 className="text-2xl font-bold text-[#2C3E2F] dark:text-white">Safe & Secure</h3>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#3C8C47] mb-2">100%</div>
-                            <p className="text-[#6B7A72]">Secure Transactions</p>
+                            <div className="text-3xl font-bold text-[#3C8C47] dark:text-amber-500 mb-2">100%</div>
+                            <p className="text-[#6B7A72] dark:text-gray-300">Secure Transactions</p>
                         </div>
 
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#3C8C47] mb-2">24/7</div>
-                            <p className="text-[#6B7A72]">Support Available</p>
+                            <div className="text-3xl font-bold text-[#3C8C47] dark:text-amber-500 mb-2">24/7</div>
+                            <p className="text-[#6B7A72] dark:text-gray-300">Support Available</p>
                         </div>
 
                         <div className="text-center">
-                            <div className="text-3xl font-bold text-[#3C8C47] mb-2">No Risk</div>
-                            <p className="text-[#6B7A72]">Cancel Anytime</p>
+                            <div className="text-3xl font-bold text-[#3C8C47] dark:text-amber-500 mb-2">No Risk</div>
+                            <p className="text-[#6B7A72] dark:text-gray-300">Cancel Anytime</p>
                         </div>
                     </div>
                 </section>
 
                 {/* Call to Action */}
                 <div className="text-center">
-                    <div className="bg-linear-to-r from-[#5E6D63] to-[#3C8C47] rounded-2xl p-8 text-white">
+                    <div className="bg-linear-to-r from-[#5E6D63] to-[#3C8C47] dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 text-white">
                         <h2 className="text-3xl font-bold mb-4">Ready to Start Your First Challenge?</h2>
                         <p className="text-white/90 mb-8 max-w-2xl mx-auto">
                             Join thousands of foodies who are already earning rewards and discovering new favorites.
@@ -359,16 +362,16 @@ const ChallengeGuide = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 to="/challenges"
-                                className="px-8 py-3 bg-white text-[#3C8C47] font-bold rounded-xl hover:bg-gray-100 transition-colors text-center"
+                                className="px-8 py-3 bg-white dark:bg-gray-100 text-[#3C8C47] dark:text-gray-800 font-bold rounded-xl hover:bg-gray-100 dark:hover:bg-white transition-colors text-center"
                             >
                                 Browse Challenges
                             </Link>
 
                             <Link
-                                to="/products"
+                                to="/reviews"
                                 className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-center"
                             >
-                                Shop Products
+                                Explore products
                             </Link>
                         </div>
 
@@ -378,6 +381,7 @@ const ChallengeGuide = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

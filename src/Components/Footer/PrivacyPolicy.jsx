@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
                     <p>We collect information to provide better services to all our users. This includes:</p>
                     <ul className="list-disc pl-6 space-y-2">
                         <li><strong>Personal Information:</strong> Name, email address, and profile information you provide</li>
-                        <li><strong>Review Content:</strong> Your restaurant reviews, ratings, photos, and comments</li>
+                        <li><strong>Review Content:</strong> Your restaurant products, ratings, photos, and comments</li>
                         <li><strong>Usage Data:</strong> How you interact with our platform, including search queries and page views</li>
                         <li><strong>Device Information:</strong> IP address, browser type, and device identifiers</li>
                         <li><strong>Location Data:</strong> Approximate location to show relevant restaurants (with your consent)</li>
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
                     <ul className="list-disc pl-6 space-y-2">
                         <li>Provide, maintain, and improve our services</li>
                         <li>Personalize your experience and show relevant content</li>
-                        <li>Process and display your reviews and ratings</li>
+                        <li>Process and display your products and ratings</li>
                         <li>Communicate with you about updates and offers</li>
                         <li>Ensure platform security and prevent fraud</li>
                         <li>Conduct research and analysis to improve our services</li>
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
                 <div className="space-y-4 text-gray-600">
                     <p>We do not sell your personal information. We may share information:</p>
                     <ul className="list-disc pl-6 space-y-2">
-                        <li><strong>With Restaurants:</strong> Your reviews and ratings (not your contact information)</li>
+                        <li><strong>With Restaurants:</strong> Your products and ratings (not your contact information)</li>
                         <li><strong>With Service Providers:</strong> Trusted partners who help us operate our services</li>
                         <li><strong>For Legal Reasons:</strong> When required by law or to protect rights and safety</li>
                         <li><strong>Business Transfers:</strong> In connection with a merger or acquisition</li>
@@ -76,7 +76,7 @@ const PrivacyPolicy = () => {
                 <div className="space-y-4 text-gray-600">
                     <p>You have control over your information:</p>
                     <ul className="list-disc pl-6 space-y-2">
-                        <li><strong>Access & Update:</strong> View and edit your profile and reviews anytime</li>
+                        <li><strong>Access & Update:</strong> View and edit your profile and products anytime</li>
                         <li><strong>Delete Account:</strong> You can delete your account and associated data</li>
                         <li><strong>Opt-Out:</strong> Unsubscribe from marketing emails in your settings</li>
                         <li><strong>Data Export:</strong> Request a copy of your data</li>

@@ -1,7 +1,7 @@
 [
     {
         "title": "Local Dessert Hunt",
-        "description": "Try 5 different local desserts and share your reviews to earn the Sweet Tooth Badge!",
+        "description": "Try 5 different local desserts and share your products to earn the Sweet Tooth Badge!",
         "target": 5,
         "reward": "Sweet Tooth Badge"
     },
@@ -13,7 +13,7 @@
     },
     {
         "title": "Restaurant Review Master",
-        "description": "Write reviews for 10 local restaurants and rate them to earn the Critic Badge!",
+        "description": "Write products for 10 local restaurants and rate them to earn the Critic Badge!",
         "target": 10,
         "reward": "Critic Badge"
     }

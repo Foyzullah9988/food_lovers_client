@@ -1,13 +1,40 @@
 <!doctype html>
-<html data-theme="light" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/nav.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foodies Zone</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/nav.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodies Zone</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+(function() {
+  try {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    let theme = 'light';
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      theme = 'dark';
+    }
+    
+    document.documentElement.classList.add(theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Optional: Add to body as well for extra safety
+    document.body.classList.add(theme);
+    
+    // Optional: Store in a global variable for React to access
+    window.__INITIAL_THEME__ = theme;
+  } catch(e) {
+    console.warn('Theme initialization failed:', e);
+  }
+})();
+</script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

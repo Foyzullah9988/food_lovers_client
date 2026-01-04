@@ -35,12 +35,12 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <Home />,
-                loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
+                loader: () => fetch('https://foodies-zone-eta.vercel.app/reviews')
             }
         ],
     },
     {
-        path: '/products',
+        path: '/reviews',
         element: <Root />,
         errorElement: <Error />,
         hydrateFallbackElement: <Spinner />,
@@ -48,12 +48,12 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <Products />,
-                // loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
+                // loader: () => fetch('https://foodies-zone-eta.vercel.app/reviews')
             },
             {
-                path: '/products/my-review',
+                path: '/reviews/my-review',
                 element: <PrivateRoute><MyReview /></PrivateRoute>,
-                loader: () => fetch('https://foodies-zone-eta.vercel.app/products')
+                loader: () => fetch('https://foodies-zone-eta.vercel.app/reviews')
             },
 
         ]
@@ -74,19 +74,19 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/products-details/:id',
-        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/products-details/${params.id}`),
+        path: '/reviews-details/:id',
+        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/reviews-details/${params.id}`),
         hydrateFallbackElement: <Spinner />,
         element: <ProductsDetails />
     },
     {
         path: '/update-products/:id',
-        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/products-details/${params.id}`),
+        loader: ({ params }) => fetch(`https://foodies-zone-eta.vercel.app/reviews-details/${params.id}`),
         hydrateFallbackElement: <Spinner />,
         element: <PrivateRoute><UpdateReview /></PrivateRoute>
     },
     {
-        path: '/products/add-review',
+        path: '/reviews/add-review',
         element: <PrivateRoute><AddReview /></PrivateRoute>
     },
     {
